@@ -82,5 +82,5 @@ public/textures/     textures générées (mousse, salissures, grain)
 - `prefers-reduced-motion` respecté : animations et effets désactivés, contenu intact.
 - Sans JavaScript, tout le contenu reste visible.
 - Images optimisées (AVIF/WebP), police locale, pages statiques.
-- Aucun traceur ni cookie publicitaire : pas de bandeau imposé. La carte Google Maps ne se charge qu'après un clic (choix réversible sur `/cookies`).
+- Aucun traceur ni cookie publicitaire propre au site : pas de bandeau imposé. La carte Google Maps (page « La station ») est intégrée directement ; voir `/cookies` pour le détail des services tiers.
 - Les illustrations de voiture sont signalées comme « démonstration visuelle ».

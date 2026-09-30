@@ -6,8 +6,6 @@ import { WaterTransition } from "@/components/home/WaterTransition";
 import { Equipment } from "@/components/home/Equipment";
 import { WashSequence } from "@/components/home/WashSequence";
 import { BeforeAfter } from "@/components/home/BeforeAfter";
-import { HowItWorks } from "@/components/home/HowItWorks";
-import { PricesXXL } from "@/components/home/PricesXXL";
 import { StationBlock } from "@/components/home/StationBlock";
 import { GallerySection } from "@/components/home/GallerySection";
 import { Open24 } from "@/components/home/Open24";
@@ -44,8 +42,6 @@ export default function HomePage() {
       <Equipment />
       <WashSequence />
       <BeforeAfter />
-      <HowItWorks />
-      <PricesXXL />
       <StationBlock />
       <GallerySection />
       <Open24 />

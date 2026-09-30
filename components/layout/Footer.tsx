@@ -83,13 +83,13 @@ export function Footer() {
           </div>
         </div>
 
-        <div aria-hidden="true" className="pointer-events-none mt-16 select-none leading-none text-white/[.06]">
+        <div aria-hidden="true" className="pointer-events-none mt-16 select-none text-center leading-none text-white/[.06]">
           <Wordmark className="block text-[29vw] lg:text-[23vw] [&_.wordmark-2]:text-h2au/25" />
         </div>
 
-        <div className="mt-6 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm text-metal md:flex-row md:items-center md:justify-between">
+        <div className="mt-6 flex flex-col items-center gap-4 border-t border-white/10 pt-6 text-center text-sm text-metal md:flex-row md:justify-center md:gap-8">
           <p>© {new Date().getFullYear()} {station.name} — {station.subtitle}</p>
-          <ul className="flex flex-wrap gap-x-6 gap-y-2">
+          <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2">
             {legalNav.map((l) => (
               <li key={l.href}>
                 <Link href={l.href} className="nav-link hover:text-white">

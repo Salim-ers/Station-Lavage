@@ -2,6 +2,7 @@
 
 import { useRef, useState, type CSSProperties } from "react";
 import { m, useMotionValueEvent, useScroll, useTransform, useReducedMotion } from "framer-motion";
+import { ButtonLink } from "@/components/ui/Button";
 import { CarSilhouette } from "@/components/visuals/CarSilhouette";
 import { programs } from "@/data/programs";
 import { cn } from "@/lib/utils";
@@ -69,6 +70,9 @@ export function WashSequence() {
               </li>
             ))}
           </ol>
+          <ButtonLink href="/comment-ca-marche" variant="secondary" className="mt-12">
+            Le fonctionnement en détail
+          </ButtonLink>
         </div>
       </section>
     );

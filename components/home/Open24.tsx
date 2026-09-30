@@ -21,7 +21,7 @@ export function Open24() {
         <p
           data-reveal="clip"
           aria-hidden="true"
-          className="mt-14 whitespace-nowrap text-[clamp(5rem,23vw,24rem)] font-[860] uppercase leading-[.78] tracking-[-0.05em] md:mt-20 md:text-[clamp(5rem,20.5vw,24rem)] md:[font-stretch:122%]"
+          className="mt-14 w-full overflow-hidden whitespace-nowrap text-[clamp(4.5rem,17vw,17rem)] font-[860] uppercase leading-[.78] tracking-[-0.05em] md:mt-20 md:text-[clamp(4.5rem,15vw,17rem)] md:[font-stretch:122%]"
         >
           24<span className="text-h2au-deep">H</span>/24
         </p>
