@@ -55,13 +55,12 @@ Pour activer le comparateur avant/après avec de vraies photos : renseigner `bef
 ## Informations à fournir par la station
 
 - Contenu des 3 programmes (prestations, options, durée).
-- Modes de paiement.
 - Confirmation de l'adresse (relevée sur Google) et coordonnées GPS.
 - Confirmation des horaires 7j/7 (le site affiche « 24h/24, 7j/7 »).
 - Équipements disponibles en plus des rouleaux et de l'aspiration (haute pression, mousse, lustrage…).
 - Informations légales (raison sociale, SIRET, RCS, TVA, directeur de publication, hébergeur), e-mail.
 - Durée de conservation des messages et prestataire du formulaire (politique de confidentialité).
-- Réseaux sociaux, avis clients à mettre en avant, photos HD.
+- Réseaux sociaux, photos HD du portique et de l'aspiration.
 
 ## Organisation du code
 

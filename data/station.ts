@@ -39,8 +39,7 @@ export const station = {
 
   email: null as string | null,
 
-  // Modes de paiement : non communiqués. Ex. ["Carte bancaire", "Espèces"]
-  paymentMethods: [] as string[],
+  paymentMethods: ["Carte bancaire", "jetons à la borne", "pièces de 1 € et 2 €"] as string[],
 
   social: {
     instagram: null as string | null,
@@ -70,7 +69,8 @@ export const links = {
     ? `https://www.google.com/maps/dir/?api=1&destination=${station.geo.lat},${station.geo.lng}`
     : `https://www.google.com/maps/dir/?api=1&destination=${mapsQuery}`,
   maps: `https://www.google.com/maps/search/?api=1&query=${mapsQuery}`,
-  mapEmbed: `https://www.google.com/maps?q=${mapsQuery}&output=embed`,
+  // la carte pointe sur l'adresse exacte de la station
+  mapEmbed: `https://www.google.com/maps?q=${encodeURIComponent(`${fullAddress}, France`)}&z=16&output=embed`,
   googleReviews: `https://www.google.com/maps/search/?api=1&query=${mapsQuery}`,
 };
 

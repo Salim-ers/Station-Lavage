@@ -47,21 +47,15 @@ export function Reviews() {
         </div>
       </div>
 
-      <ul className="relative grid gap-4 sm:grid-cols-2 lg:col-span-7 lg:block lg:min-h-[520px]">
+      <ul className="grid gap-4 sm:grid-cols-2 lg:col-span-7">
         {items.map((r, i) => (
           <li
             key={i}
             data-reveal="fade"
             style={{ ["--d" as string]: `${i * 140}ms` }}
-            className={cn(
-              "lg:absolute lg:w-[58%]",
-              i === 0 && "lg:left-0 lg:top-0",
-              i === 1 && "lg:right-0 lg:top-[30%]",
-              i === 2 && "lg:bottom-0 lg:left-[8%]",
-              i > 2 && "lg:hidden",
-            )}
+            className={cn(i === items.length - 1 && items.length % 2 === 1 && "sm:col-span-2")}
           >
-            <figure className="float-slow rounded-[var(--radius-medium)] border border-carbon/10 bg-white p-6 shadow-[0_30px_60px_-35px_rgb(7_9_9/.35)]" style={{ animationDelay: `${i * -2.3}s` }}>
+            <figure className="float-slow h-full rounded-[var(--radius-medium)] border border-carbon/10 bg-white p-6 shadow-[0_30px_60px_-35px_rgb(7_9_9/.35)]" style={{ animationDelay: `${i * -2.3}s` }}>
               {r ? (
                 <>
                   <Stars value={r.rating} className="text-h2au-deep" />

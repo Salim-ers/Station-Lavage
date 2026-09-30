@@ -83,8 +83,8 @@ export function Footer() {
           </div>
         </div>
 
-        <div aria-hidden="true" className="pointer-events-none mt-16 select-none text-center leading-none text-white/[.06]">
-          <Wordmark className="block text-[29vw] lg:text-[23vw] [&_.wordmark-2]:text-h2au/25" />
+        <div aria-hidden="true" className="pointer-events-none mt-16 flex select-none justify-center leading-none text-white/[.06]">
+          <Wordmark className="inline-block pl-[.04em] text-[clamp(5rem,22vw,19rem)] [&_.wordmark-2]:text-h2au/25" />
         </div>
 
         <div className="mt-6 flex flex-col items-center gap-4 border-t border-white/10 pt-6 text-center text-sm text-metal md:flex-row md:justify-center md:gap-8">

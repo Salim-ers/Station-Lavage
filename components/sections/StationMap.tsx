@@ -13,6 +13,16 @@ export function StationMap({ className, wide = false }: { className?: string; wi
         referrerPolicy="no-referrer-when-downgrade"
         allowFullScreen
       />
+      <a
+        href={links.directions}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="absolute bottom-3 left-3 right-3 rounded-[var(--radius-small)] bg-carbon/90 px-4 py-3 text-sm text-white backdrop-blur hover:bg-carbon sm:right-auto"
+      >
+        <span className="block font-bold">{station.name}</span>
+        {fullAddress} · {station.address.complement}
+        <span className="sr-only"> (itinéraire, nouvel onglet)</span>
+      </a>
     </div>
   );
 }
