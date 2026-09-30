@@ -4,58 +4,58 @@ import { useRef } from "react";
 import { m, useScroll, useTransform } from "framer-motion";
 
 const WORDS = ["Eau", "Mousse", "Pression", "Brillance"];
-const PLACES = ["H2AU", "Saint-Maximin", "24h/24"];
+const PLACES = ["H2AU Lavage", "Saint-Maximin", "Ouvert 24h/24"];
 
+/** Une ligne continue (jamais de retour à la ligne), répétée pour couvrir l'écran. */
 function Line({ items, repeat = 4 }: { items: string[]; repeat?: number }) {
   return (
-    <>
+    <span className="flex w-max items-center">
       {Array.from({ length: repeat }, () => items)
         .flat()
         .map((w, i) => (
-          <span key={i} className="inline-flex items-center">
+          <span key={i} className="flex shrink-0 items-center">
             {w}
-            <span className="mx-[.35em] inline-block size-[.14em] rounded-full bg-h2au-bright shadow-[0_0_12px_var(--color-h2au-bright)]" />
+            <span className="mx-[.6em] size-[.16em] shrink-0 rounded-full bg-h2au-bright" />
           </span>
         ))}
-    </>
+    </span>
   );
 }
 
 /**
- * Transition entre les programmes (clair) et les équipements (sombre) :
- * deux bandeaux de texte glissent en sens opposés sur fond carbone,
- * traversés par une ligne d'eau.
+ * Bandeau de transition entre les programmes (clair) et les équipements (sombre) :
+ * deux lignes discrètes qui glissent en sens opposés, séparées par un filet d'eau.
  */
 export function WaterTransition() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const x1 = useTransform(scrollYProgress, [0, 1], ["-8%", "-38%"]);
-  const x2 = useTransform(scrollYProgress, [0, 1], ["-38%", "-8%"]);
-  const jet = useTransform(scrollYProgress, [0.2, 0.62], [0, 1]);
-  const jetGlow = useTransform(scrollYProgress, [0.2, 0.5, 0.75], [0, 1, 0.4]);
+  const x1 = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"]);
+  const x2 = useTransform(scrollYProgress, [0, 1], ["-20%", "0%"]);
+  const jet = useTransform(scrollYProgress, [0.25, 0.6], [0, 1]);
 
   return (
     <div
       ref={ref}
       aria-hidden="true"
-      className="relative flex min-h-[340px] select-none flex-col justify-center gap-3 overflow-hidden bg-carbon py-20 md:min-h-[520px] md:gap-5"
+      className="relative select-none overflow-hidden border-y border-white/10 bg-carbon py-14 md:py-20"
     >
-      <div aria-hidden="true" className="green-glow absolute left-1/2 top-1/2 -z-0 h-[70vmin] w-[70vmin] -translate-x-1/2 -translate-y-1/2 opacity-40" />
-
-      <m.p style={{ x: x1 }} className="t-mega relative whitespace-nowrap !text-[clamp(3rem,10vw,9rem)] !leading-[.95] text-white">
+      <m.div
+        style={{ x: x1 }}
+        className="whitespace-nowrap text-[clamp(1.6rem,4vw,3.4rem)] font-[820] uppercase leading-none tracking-[-0.02em] text-white/85 [font-stretch:118%]"
+      >
         <Line items={WORDS} />
-      </m.p>
+      </m.div>
 
-      <div className="relative">
-        <m.div style={{ scaleX: jet, opacity: jetGlow }} className="jet-line h-[2px] origin-left" />
+      <div className="my-6 md:my-8">
+        <m.div style={{ scaleX: jet }} className="jet-line mx-auto h-px w-full max-w-[1440px] origin-left opacity-70" />
       </div>
 
-      <m.p
+      <m.div
         style={{ x: x2 }}
-        className="t-mega text-outline relative whitespace-nowrap !text-[clamp(3rem,10vw,9rem)] !leading-[.95] [-webkit-text-stroke-color:var(--color-h2au-bright)]"
+        className="whitespace-nowrap text-[clamp(1.1rem,2.2vw,1.9rem)] font-semibold uppercase leading-none tracking-[.18em] text-metal"
       >
-        <Line items={PLACES} />
-      </m.p>
+        <Line items={PLACES} repeat={5} />
+      </m.div>
     </div>
   );
 }

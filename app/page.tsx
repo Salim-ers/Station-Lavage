@@ -40,8 +40,8 @@ export default function HomePage() {
       <WaterTransition />
       <Equipment />
       <WashSequence />
-      <BeforeAfter />
       <GallerySection />
+      <BeforeAfter />
       <Open24 />
       <WhyH2AU />
       <ReviewsSection />
