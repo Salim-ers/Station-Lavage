@@ -29,7 +29,7 @@ export function PricesXXL() {
           ))}
         </ul>
         <div className="mt-10 flex flex-wrap items-center justify-between gap-6">
-          <p className="t-lead text-metal">Trois programmes. Choisissez sur place.</p>
+          <p className="t-lead text-metal">Le prix affiché, sans surprise.</p>
           <ButtonLink href="/programmes" cursor="6 · 8 · 12 €">
             Voir les programmes
           </ButtonLink>

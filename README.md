@@ -40,12 +40,14 @@ Tant qu'une information vaut `null` ou `[]`, le site affiche un emplacement du t
 
 ## Photos
 
-Les photos actuelles viennent de la fiche Google (basse résolution) : elles ont été retouchées
-(exposition, contraste, étalonnage) sans modifier la station. Pour les remplacer par des originaux HD,
-déposer les fichiers dans `assets/photos/` en gardant les mêmes noms :
+Les photos actuelles sont des photos réelles d'une station du même type (portique à rouleaux,
+auvent vert, pistes libre-service), en attendant les photos propres à la station. Pour les remplacer
+par les originaux de la station, déposer les fichiers dans `assets/photos/` en gardant les mêmes noms :
 
-- `station-auvent.jpg`, `hero-station.jpg` (version étalonnée), `hero-station-sale.jpg` (effet « pare-brise sale » du Hero) ;
-- `portique-rouleaux-etalonne.jpg`.
+- `hero-station.jpg` (vue large sous l'auvent), `hero-station-sale.jpg` (effet « pare-brise sale » du Hero) ;
+- `station-auvent.jpg` (autre angle) ;
+- `portique-rouleaux.jpg` (vue d'ensemble du portique), `portique-rouleaux-etalonne.jpg` (gros plan des brosses) ;
+- `lavage-mousse.jpg` (rinçage haute pression).
 
 Pour ajouter une photo : l'importer dans `data/media.ts` puis l'ajouter à `gallery`.
 Pour activer le comparateur avant/après avec de vraies photos : renseigner `beforeAfter.before` et `beforeAfter.after`.

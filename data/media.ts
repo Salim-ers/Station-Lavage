@@ -2,19 +2,23 @@ import type { StaticImageData } from "next/image";
 import stationAuvent from "@/assets/photos/station-auvent.jpg";
 import heroStation from "@/assets/photos/hero-station.jpg";
 import heroStationSale from "@/assets/photos/hero-station-sale.jpg";
-import portiqueRouleaux from "@/assets/photos/portique-rouleaux-etalonne.jpg";
+import portiqueRouleaux from "@/assets/photos/portique-rouleaux.jpg";
+import portiqueBrosses from "@/assets/photos/portique-rouleaux-etalonne.jpg";
+import lavageMousse from "@/assets/photos/lavage-mousse.jpg";
 
 /**
  * PHOTOS
- * Photos réelles H2AU, provisoirement extraites de la fiche Google (basse
- * résolution). Pour les remplacer : déposer les originaux HD dans
- * /assets/photos en gardant les mêmes noms de fichiers — rien d'autre à modifier.
+ * Photos réelles d'une station de lavage du même type (portique à rouleaux,
+ * auvent vert, pistes libre-service). Pour les remplacer par les vraies
+ * photos de la station H2AU : déposer les originaux HD dans /assets/photos
+ * en gardant les mêmes noms de fichiers — rien d'autre à modifier.
  *
- * - station-auvent.jpg       : photo retouchée (exposition, netteté)
- * - hero-station.jpg         : même photo, étalonnage « automobile » (ciel assombri,
- *                              verts densifiés, sol légèrement humide) — architecture intacte
- * - hero-station-sale.jpg    : même photo vue à travers un pare-brise sale (effet du Hero)
- * - portique-rouleaux-etalonne.jpg : rouleaux du portique, noirs plus profonds
+ * - hero-station.jpg               : vue large de la station sous l'auvent, totem Carwash
+ * - hero-station-sale.jpg          : même ambiance, ternie/embrumée (effet « vitre sale » du Hero)
+ * - station-auvent.jpg             : autre angle de la station, pistes libre-service
+ * - portique-rouleaux.jpg          : le portique à rouleaux, vue d'ensemble
+ * - portique-rouleaux-etalonne.jpg : les brosses du portique, gros plan avec une voiture
+ * - lavage-mousse.jpg              : rinçage haute pression, gros plan
  *
  * Pour ajouter une photo : importer le fichier ci-dessous et l'ajouter à `gallery`.
  */
@@ -34,23 +38,33 @@ export type Photo = {
 export const photos = {
   stationAuvent: {
     src: stationAuvent,
-    alt: "La station H2AU Lavage à Saint-Maximin : auvent vert, pistes de lavage et totem Carwash",
-    focus: "62% 55%",
+    alt: "La station de lavage sous son auvent vert, pistes libre-service",
+    focus: "42% 48%",
   },
   heroStation: {
     src: heroStation,
-    alt: "La station H2AU Lavage à Saint-Maximin, son auvent vert et son totem Carwash",
-    focus: "70% 45%",
+    alt: "La station de lavage, son auvent vert et son totem Carwash",
+    focus: "78% 45%",
   },
   heroStationSale: {
     src: heroStationSale,
     alt: "",
-    focus: "70% 45%",
+    focus: "78% 45%",
   },
   portiqueRouleaux: {
     src: portiqueRouleaux,
-    alt: "Les rouleaux du portique H2AU Lavage, vus depuis une voiture en cours de lavage",
-    focus: "40% 50%",
+    alt: "Le portique à rouleaux de la station, vu de face",
+    focus: "48% 42%",
+  },
+  portiqueBrosses: {
+    src: portiqueBrosses,
+    alt: "Les brosses du portique, vues depuis une voiture en cours de lavage",
+    focus: "42% 58%",
+  },
+  lavageMousse: {
+    src: lavageMousse,
+    alt: "Rinçage haute pression d'une carrosserie couverte de mousse",
+    focus: "32% 55%",
   },
 } satisfies Record<string, Photo>;
 
@@ -58,22 +72,8 @@ export const photos = {
 export const gallery: Photo[] = [
   { ...photos.heroStation, layout: "wide", caption: "La station" },
   { ...photos.portiqueRouleaux, layout: "tall", caption: "Le portique" },
-  {
-    ...photos.heroStation,
-    alt: "Gros plan sur le totem Carwash et l'extrémité de l'auvent H2AU Lavage",
-    layout: "detail",
-    focus: "90% 48%",
-    zoom: 2.1,
-    caption: "Le totem",
-  },
-  {
-    ...photos.portiqueRouleaux,
-    alt: "Gros plan sur les brosses du portique à rouleaux",
-    layout: "detail",
-    focus: "35% 28%",
-    zoom: 1.25,
-    caption: "Les brosses",
-  },
+  { ...photos.lavageMousse, layout: "detail", caption: "Le rinçage" },
+  { ...photos.portiqueBrosses, layout: "detail", caption: "Les brosses" },
 ];
 
 /**

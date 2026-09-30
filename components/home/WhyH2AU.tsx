@@ -32,7 +32,7 @@ export function WhyH2AU() {
           </li>
           {/* 3 — photo */}
           <li data-reveal="fade" style={{ ["--d" as string]: "200ms" }} className="zoom-img relative min-h-[420px] overflow-hidden rounded-[var(--radius-medium)]">
-            <Image src={photos.heroStation.src} alt="" fill sizes="(min-width: 1024px) 25vw, 50vw" placeholder="blur" className="object-cover" style={{ objectPosition: "88% 45%" }} />
+            <Image src={photos.heroStation.src} alt="" fill sizes="(min-width: 1024px) 25vw, 50vw" placeholder="blur" className="object-cover" style={{ objectPosition: "84% 44%" }} />
             <span aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-carbon via-carbon/40 to-transparent" />
             <div className="absolute inset-x-0 bottom-0 p-8">
               <h3 className="t-md">{station.city}</h3>

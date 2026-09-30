@@ -18,7 +18,7 @@ export function StationBlock() {
             sizes="(min-width: 1024px) 64vw, 100vw"
             placeholder="blur"
             className="object-cover"
-            style={{ objectPosition: "62% 50%" }}
+            style={{ objectPosition: "70% 46%" }}
           />
           <span className="absolute bottom-4 left-4 flex items-center gap-2.5 rounded-full bg-carbon/75 px-3.5 py-2 text-[.72rem] font-semibold uppercase tracking-[.12em] text-white backdrop-blur md:bottom-6 md:left-6">
             <span className="gps" aria-hidden="true">

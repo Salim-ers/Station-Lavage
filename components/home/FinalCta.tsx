@@ -7,7 +7,6 @@ import { ButtonLink } from "@/components/ui/Button";
 import { RevealLines } from "@/components/ui/Reveal";
 import { CarSilhouette } from "@/components/visuals/CarSilhouette";
 import { photos } from "@/data/media";
-import { programs } from "@/data/programs";
 import { links } from "@/data/station";
 import { cn } from "@/lib/utils";
 
@@ -31,16 +30,14 @@ export function FinalCta() {
       data-wash-label="Reprise de la route"
       aria-labelledby="cta-title"
     >
-      <Image src={photos.heroStation.src} alt="" fill sizes="100vw" placeholder="blur" className="-z-20 object-cover object-[75%_45%]" />
+      <Image src={photos.stationAuvent.src} alt="" fill sizes="100vw" placeholder="blur" className="-z-20 object-cover object-[42%_48%]" />
       <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgb(7_9_9/.9),rgb(7_9_9/.55)_55%,rgb(7_9_9/.3)),linear-gradient(0deg,rgb(7_9_9)_2%,transparent_40%)]" />
       <div aria-hidden="true" className="wiper-dirt" />
       <div aria-hidden="true" className="wiper-blade" />
 
       <div className="container-x relative z-10">
         <RevealLines id="cta-title" lines={["Elle mérite", "de briller."]} className="t-mega max-w-[12ch]" />
-        <p className="t-lead mt-8 text-white/85">
-          Trois programmes. {programs.map((p) => `${p.price} €.`).join(" ")}
-        </p>
+        <p className="t-lead mt-8 text-white/85">Le programme se choisit sur place, en quelques secondes.</p>
         <div className="mt-9 flex flex-wrap gap-3">
           <ButtonLink href={links.directions} leadingIcon="pin" cursor="→">
             Itinéraire

@@ -34,10 +34,10 @@ export const equipment: Equipment[] = [
       "Vérifiez les accessoires extérieurs : porte-vélos, barres de toit.",
       "Suivez les consignes affichées sur le portique.",
     ],
-    photo: photos.portiqueRouleaux,
+    photo: photos.portiqueBrosses,
     icon: "rollers",
     confirmed: true,
-    source: "Photo du portique sur la fiche Google",
+    source: "Photo d'un portique du même type, en attendant une photo de la station",
   },
   {
     id: "aspiration",
