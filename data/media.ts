@@ -1,5 +1,6 @@
 import type { StaticImageData } from "next/image";
-import heroStation from "@/assets/photos/hero-station.jpg";
+// Photo libre de droits (licence Unsplash) : Zulfahmi Khani, unsplash.com/photos/9iH_6JO7Ufs
+import heroMousse from "@/assets/photos/hero-mousse.jpg";
 import stationPortique from "@/assets/photos/station-portique.jpg";
 import panneauProgrammes from "@/assets/photos/panneau-programmes.jpg";
 import monnayeurPiste from "@/assets/photos/monnayeur-piste.jpg";
@@ -14,11 +15,12 @@ import produitJantes from "@/assets/photos/produit-jantes.jpg";
 import aspirateur from "@/assets/photos/aspirateur.jpg";
 
 /**
- * PHOTOS — toutes prises à la station H2AU Lavage de Saint-Maximin.
+ * PHOTOS — prises à la station H2AU Lavage de Saint-Maximin.
  * Pour remplacer une photo : déposer le nouveau fichier dans /assets/photos
  * sous le même nom. Pour en ajouter une : l'importer ici puis l'ajouter à `gallery`.
  *
- * Sources : originaux Google Drive (octobre 2026), agrandis progressivement
+ * Seule exception : la photo du Hero (hero-mousse.jpg), libre de droits.
+ * Sources des autres : originaux Google Drive (octobre 2026), agrandis progressivement
  * (1600 à 2560 px selon l'usage) avec un affinage léger.
  */
 
@@ -36,9 +38,9 @@ export type Photo = {
 
 export const photos = {
   heroStation: {
-    src: heroStation,
-    alt: "Les pistes de lavage couvertes de la station H2AU Lavage à Saint-Maximin",
-    focus: "62% 62%",
+    src: heroMousse,
+    alt: "Une voiture couverte de mousse dans une piste de lavage",
+    focus: "50% 42%",
   },
   stationEnsemble: {
     src: stationEnsemble,

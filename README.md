@@ -42,7 +42,7 @@ Tant qu'une information vaut `null` ou `[]`, le site affiche un emplacement du t
 
 Toutes les photos de `assets/photos/` ont été prises à la station (originaux Google Drive, octobre 2026),
 agrandies en 1600 à 2560 px. Pour en remplacer une, déposer le nouveau fichier sous le même nom.
-L'effet « vitre sale » du Hero est obtenu en CSS à partir de `hero-station.jpg`.
+Exception : `hero-mousse.jpg` (photo du Hero) est une photo libre de droits (licence Unsplash, Zulfahmi Khani).
 
 Les tarifs relevés sur les bornes sont dans `data/tarifs.ts` (jetons) et `data/equipment.ts` (services).
 
