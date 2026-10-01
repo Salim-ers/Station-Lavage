@@ -27,7 +27,7 @@ Node 20.9 ou plus récent. Déploiement conseillé : Vercel (aucune configuratio
 | Fichier | Contenu |
 | --- | --- |
 | `data/station.ts` | Nom, adresse, téléphone, horaires, e-mail, paiement, réseaux sociaux, informations légales, liens (itinéraire, carte, avis). |
-| `data/programs.ts` | Les 3 programmes (6 €, 8 €, 12 €) : description, options, durée. |
+| `data/programs.ts` | Les 6 programmes du lavage automatique (6 € à 22 €) : prestations, durée. |
 | `data/equipment.ts` | Équipements. Seuls ceux marqués `confirmed: true` sont affichés. |
 | `data/media.ts` | Photos, galerie, avant/après. |
 | `data/reviews.ts` | Avis clients réels et note Google. |
@@ -53,7 +53,7 @@ Pour activer le comparateur avant/après avec de vraies photos : renseigner `bef
 
 - Confirmation de l'adresse (relevée sur Google) et coordonnées GPS.
 - Confirmation des horaires 7j/7 (le site affiche « 24h/24, 7j/7 »).
-- Contenu et durée de chacun des 3 programmes du lavage automatique.
+- Durée de chacun des 6 programmes du lavage automatique.
 - Informations légales (raison sociale, SIRET, RCS, TVA, directeur de publication, hébergeur).
 - Durée de conservation des messages et prestataire du formulaire (politique de confidentialité).
 - Réseaux sociaux.

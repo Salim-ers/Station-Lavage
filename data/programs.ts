@@ -1,15 +1,17 @@
 /**
  * PROGRAMMES DU LAVAGE AUTOMATIQUE (portique)
- * Les prix sont confirmés. Le détail de chaque programme reste à fournir :
- *  - `features` : liste des prestations (vide → la liste n'est pas affichée)
- *  - `duration` : durée (null → non affichée)
+ * Relevés sur le panneau « Programmes » affiché au portique (photo d'octobre 2026).
+ * Sur le panneau, le n°1 est le plus complet (22 €) et le n°6 le plus simple (6 €).
+ * Chaque programme reprend les prestations du précédent et en ajoute.
  *
- * `look` ne sert qu'au design des cartes (minimal → signature). Aucun libellé
- * du type « recommandé » ou « le plus populaire » n'est affiché.
+ * `look` ne sert qu'au design des cartes. Aucun libellé du type « recommandé »
+ * ou « le plus populaire » n'est affiché.
  */
 
 export type Program = {
   id: string;
+  /** numéro affiché sur le panneau du portique */
+  number: number;
   price: number;
   name: string;
   description: string | null;
@@ -18,31 +20,76 @@ export type Program = {
   look: "minimal" | "rich" | "signature";
 };
 
+const S = {
+  prelavage: "Prélavage démoustiquant",
+  jantes: "Nettoyant jantes",
+  hp: "Haute pression",
+  lavage: "Lavage aux rouleaux",
+  chassis: "Lavage châssis",
+  cire: "Cire",
+  cirePlus: "Cire +",
+  sechage: "Séchage",
+  sechagePlus: "Séchage +",
+};
+
 export const programs: Program[] = [
   {
     id: "programme-6",
+    number: 6,
     price: 6,
-    name: "Programme 6 €",
-    description: "Lavage automatique au portique à rouleaux.",
-    features: [],
+    name: "Programme n°6",
+    description: "L'essentiel : lavage et séchage.",
+    features: [S.lavage, S.sechage],
     duration: null,
     look: "minimal",
   },
   {
     id: "programme-8",
+    number: 5,
     price: 8,
-    name: "Programme 8 €",
-    description: "Lavage automatique au portique à rouleaux.",
-    features: [],
+    name: "Programme n°5",
+    description: "Avec un passage haute pression.",
+    features: [S.hp, S.lavage, S.sechage],
+    duration: null,
+    look: "minimal",
+  },
+  {
+    id: "programme-12",
+    number: 4,
+    price: 12,
+    name: "Programme n°4",
+    description: "Prélavage et jantes en plus.",
+    features: [S.prelavage, S.jantes, S.hp, S.lavage, S.sechage],
     duration: null,
     look: "rich",
   },
   {
-    id: "programme-12",
-    price: 12,
-    name: "Programme 12 €",
-    description: "Lavage automatique au portique à rouleaux.",
-    features: [],
+    id: "programme-16",
+    number: 3,
+    price: 16,
+    name: "Programme n°3",
+    description: "Avec une cire pour la brillance.",
+    features: [S.prelavage, S.jantes, S.hp, S.lavage, S.cire, S.sechage],
+    duration: null,
+    look: "rich",
+  },
+  {
+    id: "programme-18",
+    number: 2,
+    price: 18,
+    name: "Programme n°2",
+    description: "Avec le lavage du châssis.",
+    features: [S.prelavage, S.jantes, S.hp, S.lavage, S.chassis, S.sechagePlus],
+    duration: null,
+    look: "signature",
+  },
+  {
+    id: "programme-22",
+    number: 1,
+    price: 22,
+    name: "Programme n°1",
+    description: "Le plus complet.",
+    features: [S.prelavage, S.jantes, S.hp, S.lavage, S.chassis, S.cirePlus, S.sechagePlus],
     duration: null,
     look: "signature",
   },
@@ -50,9 +97,10 @@ export const programs: Program[] = [
 
 export const PROGRAM_PLACEHOLDERS = {
   details: "[DÉTAILS DU PROGRAMME À RENSEIGNER]",
-  option: "[OPTION À RENSEIGNER]",
-  slots: 3,
 } as const;
 
 export const minPrice = Math.min(...programs.map((p) => p.price));
+export const maxPrice = Math.max(...programs.map((p) => p.price));
 export const priceList = programs.map((p) => `${p.price} €`);
+/** « 6 programmes, de 6 € à 22 € » */
+export const programsSummary = `${programs.length} programmes, de ${minPrice} € à ${maxPrice} €`;

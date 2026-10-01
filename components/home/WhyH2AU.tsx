@@ -2,7 +2,7 @@ import Image from "next/image";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { JetRule } from "@/components/ui/Reveal";
 import { photos } from "@/data/media";
-import { programs } from "@/data/programs";
+import { maxPrice, minPrice, programs } from "@/data/programs";
 import { station } from "@/data/station";
 
 /** Pourquoi H2AU : quatre cartes, quatre traitements différents. */
@@ -20,15 +20,11 @@ export function WhyH2AU() {
           </li>
           {/* 2 — bordure fine, prix */}
           <li data-reveal="fade" style={{ ["--d" as string]: "100ms" }} className="rounded-[var(--radius-medium)] border border-white/15 p-8 lg:mt-16 lg:min-h-[420px]">
-            <p className="text-[2.1rem] font-[820] leading-none" style={{ fontStretch: "118%" }}>
-              {programs.map((p, i) => (
-                <span key={p.id} className="block">
-                  {p.price}&nbsp;€{i < programs.length - 1 && <span className="sr-only">,</span>}
-                </span>
-              ))}
+            <p className="t-price chrome-text text-[7.5rem]">{programs.length}</p>
+            <h3 className="t-md mt-8">{programs.length} programmes</h3>
+            <p className="mt-3 text-metal">
+              Du lavage essentiel à {minPrice} € au programme complet à {maxPrice} €.
             </p>
-            <h3 className="t-md mt-8">3 programmes</h3>
-            <p className="mt-3 text-metal">{programs.map((p) => `${p.price} €`).join(", ").replace(/, ([^,]*)$/, " ou $1")}.</p>
           </li>
           {/* 3 — photo */}
           <li data-reveal="fade" style={{ ["--d" as string]: "200ms" }} className="zoom-img relative min-h-[420px] overflow-hidden rounded-[var(--radius-medium)]">

@@ -4,7 +4,7 @@ import { useRef, useState, type CSSProperties } from "react";
 import { m, useMotionValueEvent, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { ButtonLink } from "@/components/ui/Button";
 import { CarSilhouette } from "@/components/visuals/CarSilhouette";
-import { programs } from "@/data/programs";
+import { programsSummary } from "@/data/programs";
 import { cn } from "@/lib/utils";
 
 /**
@@ -16,7 +16,7 @@ import { cn } from "@/lib/utils";
 
 const STEPS = [
   { name: "Arrivée", text: "Elle arrive telle qu'elle a roulé." },
-  { name: "Programme", text: `${programs.map((p) => `${p.price} €`).join(", ").replace(/, ([^,]*)$/, " ou $1")} : vous choisissez.` },
+  { name: "Programme", text: `${programsSummary} : vous choisissez.` },
   { name: "Lavage", text: "La saleté se décolle, la carrosserie respire." },
   { name: "Rinçage", text: "Tout ce qui restait s'en va." },
   { name: "Brillance", text: "Elle repart. Et ça se voit." },

@@ -42,7 +42,7 @@ export function FinalCta() {
           <ButtonLink href={links.directions} leadingIcon="pin" cursor="→">
             Itinéraire
           </ButtonLink>
-          <ButtonLink href="/programmes" variant="secondary" cursor="6 · 8 · 12 €">
+          <ButtonLink href="/programmes" variant="secondary" cursor="6 → 22 €">
             Découvrir les programmes
           </ButtonLink>
         </div>

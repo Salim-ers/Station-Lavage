@@ -94,7 +94,7 @@ export default function StationPage() {
               </li>
             ))}
             <li>
-              <Link href="/programmes" className="lift flex h-full flex-col rounded-[var(--radius-medium)] bg-carbon p-7" data-cursor="6 · 8 · 12 €">
+              <Link href="/programmes" className="lift flex h-full flex-col rounded-[var(--radius-medium)] bg-carbon p-7" data-cursor="6 → 22 €">
                 <Icon name="drop" className="size-7 text-h2au-bright" />
                 <span className="t-md mt-10">Programmes</span>
                 <span className="mt-2 text-2xl font-extrabold" style={{ fontStretch: "118%" }}>

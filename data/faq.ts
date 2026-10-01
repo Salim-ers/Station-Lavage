@@ -15,7 +15,7 @@ export const faq: Faq[] = [
   { q: "La station est-elle ouverte la nuit ?", answer: `Oui. La station ${station.name} est ouverte 24h/24.` },
   {
     q: "Combien coûte un lavage automatique ?",
-    answer: `Le portique propose trois programmes : ${prices.slice(0, -1).join(", ")} et ${prices[prices.length - 1]}.`,
+    answer: `Le portique propose ${programs.length} programmes : ${prices.slice(0, -1).join(", ")} et ${prices[prices.length - 1]}. Le détail de chacun est sur la page Programmes & tarifs.`,
   },
   { q: "Où se trouve la station ?", answer: `${fullAddress} — ${station.address.complement}.` },
   { q: "Comment payer ?", answer: station.paymentMethods.length ? station.paymentMethods.join(", ") + "." : null },

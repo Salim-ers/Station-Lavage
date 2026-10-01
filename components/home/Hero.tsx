@@ -168,7 +168,7 @@ export function Hero() {
         </p>
 
         <div className="mt-7 flex flex-wrap gap-3">
-          <ButtonLink href="#programmes" cursor="6 · 8 · 12 €">
+          <ButtonLink href="#programmes" cursor="6 → 22 €">
             Découvrir les programmes
           </ButtonLink>
           <ButtonLink href={links.directions} variant="secondary" leadingIcon="pin" icon={null} cursor="→">

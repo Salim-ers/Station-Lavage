@@ -19,9 +19,9 @@ export function Programs() {
           id="programmes-title"
           title={["Choisissez", "votre lavage."]}
           tone="light"
-          intro="Trois programmes. Une seule destination : une voiture propre."
+          intro="Six programmes, de 6 € à 22 €. Une seule destination : une voiture propre."
         />
-        <div className="mt-14 grid gap-5 md:mt-20 lg:grid-cols-3 lg:items-stretch">
+        <div className="mt-14 grid gap-5 md:mt-20 md:grid-cols-2 lg:grid-cols-3 lg:items-stretch">
           {programs.map((p, i) => (
             <ProgramCard key={p.id} program={p} index={i} />
           ))}

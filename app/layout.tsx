@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     template: "%s | H2AU Lavage Saint-Maximin",
   },
   description:
-    "H2AU Lavage, station de lavage automobile à Saint-Maximin (Oise). Ouverte 24h/24. Trois programmes : 6 €, 8 € et 12 €.",
+    "H2AU Lavage, station de lavage automobile à Saint-Maximin (Oise). Ouverte 24h/24. Lavage automatique : 6 programmes de 6 € à 22 €.",
   applicationName: SITE_NAME,
   formatDetection: { telephone: false, address: false, email: false },
   openGraph: { siteName: SITE_NAME, locale: "fr_FR", type: "website" },

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   ...pageMetadata({
     title: "H2AU Lavage — Station de lavage auto à Saint-Maximin (60), ouverte 24h/24",
     description:
-      "Station de lavage automobile H2AU à Saint-Maximin (Oise), ouverte 24h/24. Lavage automatique 6 €, 8 € et 12 €, pistes haute pression, aspirateurs, multi-services. Paiement CB, jetons ou pièces.",
+      "Station de lavage automobile H2AU à Saint-Maximin (Oise), ouverte 24h/24. Lavage automatique de 6 € à 22 € (6 programmes), pistes haute pression, aspirateurs, multi-services. Paiement CB, jetons ou pièces.",
     path: "/",
   }),
   title: { absolute: "H2AU Lavage — Station de lavage auto à Saint-Maximin (60), ouverte 24h/24" },

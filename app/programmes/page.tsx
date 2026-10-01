@@ -16,7 +16,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "Tarifs : lavage automatique, jetons, aspirateur et services",
   description:
-    "Tous les tarifs de la station H2AU à Saint-Maximin (60) : lavage automatique à 6 €, 8 € et 12 €, jetons dès 10 €, aspirateur 4 min pour 1 €, borne multi-services. Ouvert 24h/24.",
+    "Tous les tarifs de la station H2AU à Saint-Maximin (60) : lavage automatique de 6 € à 22 € (6 programmes), jetons dès 10 €, aspirateur 4 min pour 1 €, borne multi-services. Ouvert 24h/24.",
   path: "/programmes",
 });
 
@@ -46,8 +46,8 @@ export default function ProgrammesPage() {
       {/* Lavage automatique */}
       <section className="section-light py-20 md:py-28" aria-labelledby="lavage-auto">
         <div className="container-x">
-          <SectionHeading id="lavage-auto" title={["Lavage", "automatique."]} tone="light" intro="Trois programmes au portique à rouleaux." />
-          <div className="mt-12 grid gap-5 lg:grid-cols-3">
+          <SectionHeading id="lavage-auto" title={["Lavage", "automatique."]} tone="light" intro="Six programmes au portique, du plus simple au plus complet." />
+          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {programs.map((p, i) => (
               <ProgramCard key={p.id} program={p} index={i} context="page" />
             ))}

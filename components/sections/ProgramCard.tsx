@@ -59,7 +59,7 @@ export function ProgramCard({ program, index, context = "home", className }: Pro
 
       <div className="relative flex items-center justify-between">
         <span className={cn("t-label", dark ? "text-metal" : "text-graphite")}>
-          Programme {String(index + 1).padStart(2, "0")}
+          {program.features.length} prestations
         </span>
         <Icon
           name="drop"

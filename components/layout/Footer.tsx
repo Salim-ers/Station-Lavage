@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Wordmark } from "@/components/brand/Wordmark";
 import { footerNav, legalNav } from "@/data/navigation";
-import { programs } from "@/data/programs";
+import { maxPrice, minPrice, programs } from "@/data/programs";
 import { links, station } from "@/data/station";
 
 export function Footer() {
@@ -62,13 +62,9 @@ export function Footer() {
           <div className="lg:col-span-2">
             <h2 className="t-label text-metal">Programmes</h2>
             <p className="mt-4 text-[1.35rem] font-extrabold" style={{ fontStretch: "118%" }}>
-              {programs.map((p, i) => (
-                <span key={p.id}>
-                  {i > 0 && <span className="px-1.5 text-h2au">—</span>}
-                  {p.price}&nbsp;€
-                </span>
-              ))}
+              {minPrice}&nbsp;€ <span className="px-1 text-h2au">→</span> {maxPrice}&nbsp;€
             </p>
+            <p className="mt-1 text-sm text-metal">{programs.length} programmes de lavage automatique</p>
             {socials.length > 0 && (
               <ul className="mt-8 flex gap-4 text-white/80">
                 {socials.map(([name, url]) => (

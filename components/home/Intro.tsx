@@ -5,7 +5,7 @@ import { CountUp } from "@/components/ui/CountUp";
 import { programs } from "@/data/programs";
 import { station } from "@/data/station";
 
-/** 02 — Introduction (fond clair) + les trois prix qui apparaissent. */
+/** 02 — Introduction (fond clair) + les prix des programmes qui apparaissent. */
 export function Intro() {
   return (
     <section
@@ -31,13 +31,13 @@ export function Intro() {
           </div>
         </div>
 
-        <ul className="mt-16 grid grid-cols-3 border-t border-carbon/15 md:mt-24" aria-label="Tarifs des programmes">
+        <ul className="mt-16 grid grid-cols-3 gap-x-4 gap-y-10 md:mt-24 md:grid-cols-6 md:gap-x-6" aria-label="Tarifs des programmes">
           {programs.map((p, i) => (
             <li
               key={p.id}
               data-reveal="fade"
-              style={{ ["--d" as string]: `${i * 140}ms` }}
-              className="border-carbon/15 pt-6 [&:not(:first-child)]:border-l [&:not(:first-child)]:pl-4 md:pt-8 md:[&:not(:first-child)]:pl-8"
+              style={{ ["--d" as string]: `${i * 100}ms` }}
+              className="border-t border-carbon/15 pt-6 md:pt-8"
             >
               <Link
                 href={`/programmes#${p.id}`}
@@ -45,8 +45,8 @@ export function Intro() {
                 data-cursor={`${p.price} €`}
                 aria-label={`${p.name} : voir le détail`}
               >
-                <span className="t-label text-graphite">Programme {String(i + 1).padStart(2, "0")}</span>
-                <span className="t-price mt-3 block text-[clamp(3.4rem,13vw,11rem)] text-carbon transition-colors duration-500 group-hover:text-h2au-deep">
+                <span className="t-label text-graphite">N°{p.number}</span>
+                <span className="t-price mt-3 block text-[clamp(2.6rem,12vw,5rem)] text-carbon transition-colors duration-500 group-hover:text-h2au-deep md:text-[clamp(2.6rem,5.6vw,5.5rem)]">
                   <CountUp value={p.price} />
                   <span className="euro">€</span>
                 </span>

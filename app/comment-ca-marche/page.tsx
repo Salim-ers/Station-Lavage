@@ -13,7 +13,7 @@ import { JsonLd, pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "Comment ça marche ? Le lavage en 5 étapes",
   description:
-    "Choix du programme (6 €, 8 € ou 12 €), lavage, aspiration, départ : le fonctionnement de la station de lavage H2AU à Saint-Maximin, ouverte 24h/24.",
+    "Choix du programme (de 6 € à 22 €), lavage, aspiration, départ : le fonctionnement de la station de lavage H2AU à Saint-Maximin, ouverte 24h/24.",
   path: "/comment-ca-marche",
 });
 
@@ -26,8 +26,8 @@ export default function CommentCaMarchePage() {
       title: "Choisir son programme",
       body: (
         <>
-          <p>Trois programmes, trois prix.</p>
-          <p className="mt-4 flex gap-5 text-3xl font-extrabold text-white" style={{ fontStretch: "118%" }}>
+          <p>Six programmes au portique, de 6 € à 22 €.</p>
+          <p className="mt-4 flex flex-wrap gap-x-5 gap-y-1 text-3xl font-extrabold text-white" style={{ fontStretch: "118%" }}>
             {programs.map((p) => (
               <span key={p.id}>{p.price}&nbsp;€</span>
             ))}

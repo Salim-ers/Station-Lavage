@@ -133,7 +133,7 @@ export default async function ArticlePage({ params }: { params: Promise<Params> 
               <div className="rounded-[var(--radius-medium)] bg-carbon p-7 text-white lg:sticky lg:top-24">
                 <p className="t-label text-metal">{station.name} · {station.city}</p>
                 <p className="t-md mt-4">Envie d&apos;une voiture propre ?</p>
-                <p className="mt-3 text-metal">Station ouverte {station.openingHours}. Trois programmes :</p>
+                <p className="mt-3 text-metal">Station ouverte {station.openingHours}. Lavage automatique :</p>
                 <p className="mt-3 text-2xl font-extrabold" style={{ fontStretch: "118%" }}>
                   {programs.map((p) => `${p.price} €`).join(" · ")}
                 </p>
