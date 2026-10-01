@@ -40,9 +40,9 @@ Tant qu'une information vaut `null` ou `[]`, le site affiche un emplacement du t
 
 ## Photos
 
-Toutes les photos de `assets/photos/` ont été prises à la station (septembre 2026). Pour en remplacer
-une, déposer le nouveau fichier sous le même nom. `hero-station-sale.jpg` est une version ternie de
-`station-portique.jpg` (effet « vitre sale » du Hero) : la régénérer si cette photo change.
+Toutes les photos de `assets/photos/` ont été prises à la station (originaux Google Drive, octobre 2026),
+agrandies en 1600 à 2560 px. Pour en remplacer une, déposer le nouveau fichier sous le même nom.
+L'effet « vitre sale » du Hero est obtenu en CSS à partir de `hero-station.jpg`.
 
 Les tarifs relevés sur les bornes sont dans `data/tarifs.ts` (jetons) et `data/equipment.ts` (services).
 

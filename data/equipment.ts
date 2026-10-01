@@ -45,20 +45,23 @@ export const equipment: Equipment[] = [
     name: "Pistes haute pression",
     headline: ["Haute pression.", "À votre rythme."],
     description:
-      "Des pistes couvertes en libre-service, avec lance haute pression. Sur place, une borne de produit jantes et démoustiquant.",
+      "Des pistes couvertes en libre-service. Au choix sur le monnayeur : lavage à l'eau chaude savonneuse, pré-rinçage, rinçage anti-traces à l'eau déminéralisée, cire de protection, rinçage après cire et lavage à la brosse.",
     tips: [
-      "Commencez par le bas de caisse et les jantes, là où la saleté s'accroche.",
+      "Commencez par le pré-rinçage pour décoller la saleté.",
       "Lavez de haut en bas, en gardant la lance à distance de la carrosserie.",
-      "Terminez par un rinçage complet avant que le produit ne sèche.",
+      "Finissez par le rinçage anti-traces : l'eau déminéralisée sèche sans laisser de marques.",
+      "N'utilisez pas de pièces humides dans le monnayeur.",
     ],
     rates: [
+      { label: "Piste · 1 €", value: "1 min 20" },
+      { label: "Piste · 2 € ou 1 jeton", value: "2 min 40" },
       { label: "Produit jantes + démoustiquant · 1 €", value: "30 s" },
       { label: "Produit jantes + démoustiquant · 2 € ou 1 jeton", value: "1 min" },
     ],
     photo: photos.piste,
     icon: "spray",
     confirmed: true,
-    source: "Photos des pistes et de la borne produit jantes",
+    source: "Photos du monnayeur de piste et de la borne produit jantes",
   },
   {
     id: "aspiration",

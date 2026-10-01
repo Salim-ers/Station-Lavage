@@ -40,6 +40,22 @@ export default function ProgrammesPage() {
               <ProgramCard key={p.id} program={p} index={i} context="page" />
             ))}
           </div>
+          <figure className="mt-12 grid gap-6 md:grid-cols-12 md:items-center">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[var(--radius-medium)] md:col-span-7">
+              <Image
+                src={photos.panneauProgrammes.src}
+                alt={photos.panneauProgrammes.alt}
+                fill
+                sizes="(min-width: 768px) 58vw, 100vw"
+                placeholder="blur"
+                className="object-cover"
+                style={{ objectPosition: photos.panneauProgrammes.focus }}
+              />
+            </div>
+            <figcaption className="text-graphite md:col-span-5">
+              Le panneau affiché au portique : le programme se choisit sur place.
+            </figcaption>
+          </figure>
         </div>
       </section>
 

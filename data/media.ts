@@ -1,7 +1,8 @@
 import type { StaticImageData } from "next/image";
 import heroStation from "@/assets/photos/hero-station.jpg";
-import heroStationSale from "@/assets/photos/hero-station-sale.jpg";
 import stationPortique from "@/assets/photos/station-portique.jpg";
+import panneauProgrammes from "@/assets/photos/panneau-programmes.jpg";
+import monnayeurPiste from "@/assets/photos/monnayeur-piste.jpg";
 import stationEnsemble from "@/assets/photos/station-ensemble.jpg";
 import pistesAuvent from "@/assets/photos/pistes-auvent.jpg";
 import piste from "@/assets/photos/piste-voiture.jpg";
@@ -17,10 +18,8 @@ import aspirateur from "@/assets/photos/aspirateur.jpg";
  * Pour remplacer une photo : déposer le nouveau fichier dans /assets/photos
  * sous le même nom. Pour en ajouter une : l'importer ici puis l'ajouter à `gallery`.
  *
- * hero-station.jpg, station-ensemble.jpg et pistes-auvent.jpg (affichées en
- * plein écran) ont été agrandies en 2400–2560 px et légèrement affinées.
- * hero-station-sale.jpg est une version ternie de hero-station.jpg
- * (effet « vitre sale » du Hero) : la régénérer si la photo change.
+ * Sources : originaux Google Drive (octobre 2026), agrandis progressivement
+ * (1600 à 2560 px selon l'usage) avec un affinage léger.
  */
 
 export type Photo = {
@@ -41,11 +40,6 @@ export const photos = {
     alt: "La station H2AU Lavage à Saint-Maximin : pistes de lavage sous auvent et portique de lavage automatique",
     focus: "68% 55%",
   },
-  heroStationSale: {
-    src: heroStationSale,
-    alt: "",
-    focus: "68% 55%",
-  },
   stationEnsemble: {
     src: stationEnsemble,
     alt: "Vue d'ensemble de la station H2AU Lavage, pistes sous auvent et espace services",
@@ -53,8 +47,18 @@ export const photos = {
   },
   portique: {
     src: stationPortique,
-    alt: "Le portique de lavage automatique de la station H2AU Lavage",
-    focus: "90% 62%",
+    alt: "Le portique de lavage automatique de la station H2AU Lavage, brosses et rails de guidage",
+    focus: "40% 55%",
+  },
+  panneauProgrammes: {
+    src: panneauProgrammes,
+    alt: "Le panneau des 6 programmes du lavage automatique, de 6 € à 22 €",
+    focus: "60% 50%",
+  },
+  monnayeurPiste: {
+    src: monnayeurPiste,
+    alt: "Le monnayeur d'une piste haute pression : pièces de 1 € et 2 € ou jeton",
+    focus: "50% 55%",
   },
   pistes: {
     src: pistesAuvent,
@@ -100,12 +104,12 @@ export const photos = {
 
 /** Galerie éditoriale : l'ordre définit la composition (grande, verticale, gros plans). */
 export const gallery: Photo[] = [
-  { ...photos.stationEnsemble, layout: "wide", caption: "La station" },
+  { ...photos.portique, layout: "wide", caption: "Le portique" },
   { ...photos.borne, layout: "tall", caption: "Les jetons" },
   { ...photos.piste, layout: "detail", caption: "Les pistes" },
   { ...photos.multiServices, layout: "detail", caption: "Multi-services" },
   { ...photos.aspirateur, layout: "detail", caption: "L'aspiration" },
-  { ...photos.portique, layout: "wide", caption: "Le portique" },
+  { ...photos.stationEnsemble, layout: "wide", caption: "La station" },
 ];
 
 /**

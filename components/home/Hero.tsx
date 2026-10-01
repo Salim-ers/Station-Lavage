@@ -72,14 +72,15 @@ export function Hero() {
     >
       {/* Photo : vitre sale (dessous) puis vitre nettoyée (dessus, découpée par le jet) */}
       <m.div className="absolute inset-0 -z-20" style={{ y: photoY, scale: photoScale }}>
+        {/* même photo, ternie en CSS (évite un second fichier dégradé) */}
         <Image
-          src={photos.heroStationSale.src}
+          src={photos.heroStation.src}
           alt=""
           fill
           priority
           sizes="100vw"
           quality={90}
-          className="object-cover object-[80%_50%] md:object-[70%_45%]"
+          className="object-cover object-[80%_50%] brightness-[.72] saturate-[.55] md:object-[70%_45%]"
         />
         <m.div className="absolute inset-0" style={{ clipPath: clip }}>
           <Image

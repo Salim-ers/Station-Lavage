@@ -1,6 +1,6 @@
 /**
  * PROGRAMMES DU LAVAGE AUTOMATIQUE (portique)
- * Relevés sur le panneau « Programmes » affiché au portique (photo d'octobre 2026).
+ * Relevés sur le panneau « Programmes » du portique Christ (photo d'octobre 2026).
  * Sur le panneau, le n°1 est le plus complet (22 €) et le n°6 le plus simple (6 €).
  * Chaque programme reprend les prestations du précédent et en ajoute.
  *
@@ -22,12 +22,12 @@ export type Program = {
 
 const S = {
   prelavage: "Prélavage démoustiquant",
-  jantes: "Nettoyant jantes",
-  hp: "Haute pression",
-  lavage: "Lavage aux rouleaux",
+  jantes: "Jantes haute pression",
+  mousse: "Mousse active",
+  lavage: "Lavage brosses douces",
   chassis: "Lavage châssis",
-  cire: "Cire",
-  cirePlus: "Cire +",
+  cire: "Cire polish",
+  cirePlus: "Cire polish +",
   sechage: "Séchage",
   sechagePlus: "Séchage +",
 };
@@ -48,8 +48,8 @@ export const programs: Program[] = [
     number: 5,
     price: 8,
     name: "Programme n°5",
-    description: "Avec un passage haute pression.",
-    features: [S.hp, S.lavage, S.sechage],
+    description: "Avec mousse active.",
+    features: [S.mousse, S.lavage, S.sechage],
     duration: null,
     look: "minimal",
   },
@@ -58,8 +58,8 @@ export const programs: Program[] = [
     number: 4,
     price: 12,
     name: "Programme n°4",
-    description: "Prélavage et jantes en plus.",
-    features: [S.prelavage, S.jantes, S.hp, S.lavage, S.sechage],
+    description: "Prélavage et jantes haute pression en plus.",
+    features: [S.prelavage, S.jantes, S.mousse, S.lavage, S.sechage],
     duration: null,
     look: "rich",
   },
@@ -68,8 +68,8 @@ export const programs: Program[] = [
     number: 3,
     price: 16,
     name: "Programme n°3",
-    description: "Avec une cire pour la brillance.",
-    features: [S.prelavage, S.jantes, S.hp, S.lavage, S.cire, S.sechage],
+    description: "Avec une cire polish pour la brillance.",
+    features: [S.prelavage, S.jantes, S.mousse, S.lavage, S.cire, S.sechage],
     duration: null,
     look: "rich",
   },
@@ -79,7 +79,7 @@ export const programs: Program[] = [
     price: 18,
     name: "Programme n°2",
     description: "Avec le lavage du châssis.",
-    features: [S.prelavage, S.jantes, S.hp, S.lavage, S.chassis, S.sechagePlus],
+    features: [S.prelavage, S.jantes, S.mousse, S.lavage, S.chassis, S.sechagePlus],
     duration: null,
     look: "signature",
   },
@@ -89,7 +89,7 @@ export const programs: Program[] = [
     price: 22,
     name: "Programme n°1",
     description: "Le plus complet.",
-    features: [S.prelavage, S.jantes, S.hp, S.lavage, S.chassis, S.cirePlus, S.sechagePlus],
+    features: [S.prelavage, S.jantes, S.mousse, S.lavage, S.chassis, S.cirePlus, S.sechagePlus],
     duration: null,
     look: "signature",
   },
