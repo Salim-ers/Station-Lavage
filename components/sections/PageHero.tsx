@@ -41,7 +41,6 @@ export function PageHero({ title, kicker, intro, photo, children, aside, washSte
             style={{ objectPosition: photo.focus }}
           />
           <div aria-hidden="true" className="hero-vignette absolute inset-0 -z-10" />
-          <div aria-hidden="true" className="grain absolute inset-0 -z-10" />
         </>
       )}
       {!photo && (
