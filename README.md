@@ -40,27 +40,23 @@ Tant qu'une information vaut `null` ou `[]`, le site affiche un emplacement du t
 
 ## Photos
 
-Les photos actuelles sont des photos réelles d'une station du même type (portique à rouleaux,
-auvent vert, pistes libre-service), en attendant les photos propres à la station. Pour les remplacer
-par les originaux de la station, déposer les fichiers dans `assets/photos/` en gardant les mêmes noms :
+Toutes les photos de `assets/photos/` ont été prises à la station (septembre 2026). Pour en remplacer
+une, déposer le nouveau fichier sous le même nom. `hero-station-sale.jpg` est une version ternie de
+`station-portique.jpg` (effet « vitre sale » du Hero) : la régénérer si cette photo change.
 
-- `hero-station.jpg` (vue large sous l'auvent), `hero-station-sale.jpg` (effet « pare-brise sale » du Hero) ;
-- `station-auvent.jpg` (autre angle) ;
-- `portique-rouleaux.jpg` (vue d'ensemble du portique), `portique-rouleaux-etalonne.jpg` (gros plan des brosses) ;
-- `lavage-mousse.jpg` (rinçage haute pression).
+Les tarifs relevés sur les bornes sont dans `data/tarifs.ts` (jetons) et `data/equipment.ts` (services).
 
 Pour ajouter une photo : l'importer dans `data/media.ts` puis l'ajouter à `gallery`.
 Pour activer le comparateur avant/après avec de vraies photos : renseigner `beforeAfter.before` et `beforeAfter.after`.
 
 ## Informations à fournir par la station
 
-- Contenu des 3 programmes (prestations, options, durée).
 - Confirmation de l'adresse (relevée sur Google) et coordonnées GPS.
 - Confirmation des horaires 7j/7 (le site affiche « 24h/24, 7j/7 »).
-- Équipements disponibles en plus des rouleaux et de l'aspiration (haute pression, mousse, lustrage…).
-- Informations légales (raison sociale, SIRET, RCS, TVA, directeur de publication, hébergeur), e-mail.
+- Contenu et durée de chacun des 3 programmes du lavage automatique.
+- Informations légales (raison sociale, SIRET, RCS, TVA, directeur de publication, hébergeur).
 - Durée de conservation des messages et prestataire du formulaire (politique de confidentialité).
-- Réseaux sociaux, photos HD du portique et de l'aspiration.
+- Réseaux sociaux.
 
 ## Organisation du code
 

@@ -1,11 +1,8 @@
 /**
- * PROGRAMMES DE LAVAGE
- * Les prix sont confirmés. Le détail des prestations ne l'est pas encore :
- *  - `description` : texte court sous le prix (null → « [DÉTAILS DU PROGRAMME À RENSEIGNER] »)
- *  - `features`    : liste des prestations (vide → emplacements « [OPTION À RENSEIGNER] »)
- *
- * Exemple une fois les informations reçues :
- *   name: "Programme Éclat", description: "…", features: ["…", "…"]
+ * PROGRAMMES DU LAVAGE AUTOMATIQUE (portique)
+ * Les prix sont confirmés. Le détail de chaque programme reste à fournir :
+ *  - `features` : liste des prestations (vide → la liste n'est pas affichée)
+ *  - `duration` : durée (null → non affichée)
  *
  * `look` ne sert qu'au design des cartes (minimal → signature). Aucun libellé
  * du type « recommandé » ou « le plus populaire » n'est affiché.
@@ -26,7 +23,7 @@ export const programs: Program[] = [
     id: "programme-6",
     price: 6,
     name: "Programme 6 €",
-    description: null,
+    description: "Lavage automatique au portique à rouleaux.",
     features: [],
     duration: null,
     look: "minimal",
@@ -35,7 +32,7 @@ export const programs: Program[] = [
     id: "programme-8",
     price: 8,
     name: "Programme 8 €",
-    description: null,
+    description: "Lavage automatique au portique à rouleaux.",
     features: [],
     duration: null,
     look: "rich",
@@ -44,7 +41,7 @@ export const programs: Program[] = [
     id: "programme-12",
     price: 12,
     name: "Programme 12 €",
-    description: null,
+    description: "Lavage automatique au portique à rouleaux.",
     features: [],
     duration: null,
     look: "signature",

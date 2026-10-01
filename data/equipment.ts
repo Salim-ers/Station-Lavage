@@ -1,9 +1,8 @@
 import { photos, type Photo } from "./media";
 
 /**
- * ÉQUIPEMENTS
+ * ÉQUIPEMENTS — relevés sur place (photos de la station, septembre 2026).
  * Seuls les équipements `confirmed: true` sont affichés sur le site.
- * Pour en ajouter un : passer `confirmed` à true et compléter les champs.
  */
 
 export type EquipmentIcon = "rollers" | "vacuum" | "drop" | "sparkle" | "spray";
@@ -14,6 +13,8 @@ export type Equipment = {
   headline: string[];
   description: string;
   tips: string[];
+  /** tarifs affichés sur la borne */
+  rates?: { label: string; value: string }[];
   photo: Photo | null;
   icon: EquipmentIcon;
   confirmed: boolean;
@@ -24,9 +25,9 @@ export type Equipment = {
 export const equipment: Equipment[] = [
   {
     id: "rouleaux",
-    name: "Rouleaux",
-    headline: ["Rouleaux."],
-    description: "Le portique à rouleaux de la station. Vous avancez, les brosses font le travail.",
+    name: "Lavage automatique",
+    headline: ["Lavage", "automatique."],
+    description: "Le portique à rouleaux. Vous choisissez votre programme, vous avancez, les brosses font le travail.",
     tips: [
       "Fermez les vitres et le toit ouvrant.",
       "Rabattez les rétroviseurs.",
@@ -34,10 +35,30 @@ export const equipment: Equipment[] = [
       "Vérifiez les accessoires extérieurs : porte-vélos, barres de toit.",
       "Suivez les consignes affichées sur le portique.",
     ],
-    photo: photos.portiqueBrosses,
+    photo: photos.portique,
     icon: "rollers",
     confirmed: true,
-    source: "Photo d'un portique du même type, en attendant une photo de la station",
+    source: "Photo de la station (panneau « Lavage automatique » et portique)",
+  },
+  {
+    id: "haute-pression",
+    name: "Pistes haute pression",
+    headline: ["Haute pression.", "À votre rythme."],
+    description:
+      "Des pistes couvertes en libre-service, avec lance haute pression. Sur place, une borne de produit jantes et démoustiquant.",
+    tips: [
+      "Commencez par le bas de caisse et les jantes, là où la saleté s'accroche.",
+      "Lavez de haut en bas, en gardant la lance à distance de la carrosserie.",
+      "Terminez par un rinçage complet avant que le produit ne sèche.",
+    ],
+    rates: [
+      { label: "Produit jantes + démoustiquant · 1 €", value: "30 s" },
+      { label: "Produit jantes + démoustiquant · 2 € ou 1 jeton", value: "1 min" },
+    ],
+    photo: photos.piste,
+    icon: "spray",
+    confirmed: true,
+    source: "Photos des pistes et de la borne produit jantes",
   },
   {
     id: "aspiration",
@@ -50,44 +71,35 @@ export const equipment: Equipment[] = [
       "Avancez puis reculez les sièges pour atteindre les rails.",
       "Videz le coffre avant de l'aspirer.",
     ],
-    photo: null,
+    rates: [
+      { label: "2 €", value: "8 min" },
+      { label: "1 €", value: "4 min" },
+    ],
+    photo: photos.aspirateur,
     icon: "vacuum",
     confirmed: true,
-    source: "Services listés sur la fiche Google (nettoyage à l'aspirateur de l'intérieur)",
-  },
-  // --- À CONFIRMER : non affichés tant que `confirmed` vaut false ---
-  {
-    id: "haute-pression",
-    name: "Haute pression",
-    headline: ["Haute pression."],
-    description: "[INFORMATION À RENSEIGNER]",
-    tips: [],
-    photo: null,
-    icon: "spray",
-    confirmed: false,
-    source: "À confirmer",
+    source: "Photo de l'aspirateur (tarifs affichés)",
   },
   {
-    id: "mousse",
-    name: "Mousse",
-    headline: ["Mousse."],
-    description: "[INFORMATION À RENSEIGNER]",
-    tips: [],
-    photo: null,
-    icon: "drop",
-    confirmed: false,
-    source: "À confirmer",
-  },
-  {
-    id: "finition",
-    name: "Finition",
-    headline: ["Finition."],
-    description: "[INFORMATION À RENSEIGNER]",
-    tips: [],
-    photo: null,
+    id: "multi-services",
+    name: "Multi-services",
+    headline: ["La touche", "finale."],
+    description:
+      "Une borne pour finir le travail : parfums (vanille, anti-tabac, citron, musc blanc), brillant pneus, lave-glace −20 °C, nettoyant tableau de bord et plastiques, gonflage des pneus.",
+    tips: [
+      "Choisissez le service sur la borne, puis insérez pièces ou jeton.",
+      "Le bouton STOP interrompt le service en cours.",
+    ],
+    rates: [
+      { label: "Parfum · 2 € ou 1 jeton", value: "1 min" },
+      { label: "Brillant pneus · 2 € ou 1 jeton", value: "1 min 40" },
+      { label: "Tableau de bord · 2 € ou 1 jeton", value: "1 min 20" },
+      { label: "Lave-glace 1 L · 2 € ou 1 jeton", value: "40 s" },
+    ],
+    photo: photos.multiServices,
     icon: "sparkle",
-    confirmed: false,
-    source: "« Lustrage de carrosserie » apparaît sur la fiche Google — à confirmer",
+    confirmed: true,
+    source: "Photo de la borne multi-services (2 € ou 1 jeton)",
   },
 ];
 

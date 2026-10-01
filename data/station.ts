@@ -37,9 +37,15 @@ export const station = {
   openingHours: "24h/24",
   openingHoursLong: "Ouvert 24h/24, 7j/7",
 
-  email: null as string | null,
+  // Relevé sur le distributeur de jetons
+  email: "lavage@h2au.fr" as string | null,
 
-  paymentMethods: ["Carte bancaire", "jetons à la borne", "pièces de 1 € et 2 €"] as string[],
+  paymentMethods: [
+    "Carte bancaire ou sans contact (Visa, Mastercard, CB, Apple Pay)",
+    "billets au distributeur de jetons",
+    "pièces de 1 € et 2 €",
+    "jetons",
+  ] as string[],
 
   social: {
     instagram: null as string | null,

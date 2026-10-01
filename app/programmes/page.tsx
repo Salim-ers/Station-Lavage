@@ -1,41 +1,36 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PageHero } from "@/components/sections/PageHero";
 import { ProgramCard } from "@/components/sections/ProgramCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { Placeholder } from "@/components/ui/Reveal";
 import { Price } from "@/components/ui/Price";
+import { Icon } from "@/components/ui/Icon";
 import { CtaBand } from "@/components/sections/CtaBand";
-import { ButtonLink } from "@/components/ui/Button";
-import { PROGRAM_PLACEHOLDERS, programs } from "@/data/programs";
-import { links, station, TODO } from "@/data/station";
+import { confirmedEquipment } from "@/data/equipment";
+import { photos } from "@/data/media";
+import { programs } from "@/data/programs";
+import { tokenNotes, tokenPacks } from "@/data/tarifs";
+import { station } from "@/data/station";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Programmes de lavage à 6 €, 8 € et 12 €",
+  title: "Tarifs : lavage automatique, jetons, aspirateur et services",
   description:
-    "Les trois programmes de lavage de la station H2AU à Saint-Maximin (60) : 6 €, 8 € et 12 €. Station ouverte 24h/24, venez choisir le vôtre sur place.",
+    "Tous les tarifs de la station H2AU à Saint-Maximin (60) : lavage automatique à 6 €, 8 € et 12 €, jetons dès 10 €, aspirateur 4 min pour 1 €, borne multi-services. Ouvert 24h/24.",
   path: "/programmes",
 });
 
 export default function ProgrammesPage() {
-  const rows: { label: string; value: (p: (typeof programs)[number]) => React.ReactNode }[] = [
-    { label: "Prix", value: (p) => <span className="text-xl font-extrabold">{p.price} €</span> },
-    { label: "Prestations", value: (p) => (p.description ? p.description : <Placeholder>{PROGRAM_PLACEHOLDERS.details}</Placeholder>) },
-    {
-      label: "Options incluses",
-      value: (p) => (p.features.length ? p.features.join(", ") : <Placeholder>{PROGRAM_PLACEHOLDERS.option}</Placeholder>),
-    },
-    { label: "Durée", value: (p) => p.duration ?? <Placeholder>{TODO.info}</Placeholder> },
-  ];
+  const extras = confirmedEquipment.filter((e) => e.rates?.length);
 
   return (
     <>
       <PageHero
-        title={["Un programme.", "Selon vos besoins."]}
+        title={["Nos tarifs.", "Sans surprise."]}
         kicker={<>{station.name} · {station.city}</>}
-        intro="Trois programmes de lavage, trois prix clairs. Vous choisissez à la station, à l'heure qui vous arrange."
+        intro="Lavage automatique, pistes haute pression, aspiration et services : tout se règle sur place, par carte, jetons ou pièces."
         aside={
-          <ul className="flex items-end justify-start gap-6 md:justify-end md:gap-10" aria-label="Tarifs">
+          <ul className="flex items-end justify-start gap-6 md:justify-end md:gap-10" aria-label="Tarifs du lavage automatique">
             {programs.map((p) => (
               <li key={p.id} data-inview="">
                 <a href={`#${p.id}`} className="block" data-cursor={`${p.price} €`}>
@@ -48,67 +43,68 @@ export default function ProgrammesPage() {
         washStep={{ n: "03", label: "Mousse" }}
       />
 
-      <section className="section-light py-20 md:py-28" aria-labelledby="liste-programmes">
+      {/* Lavage automatique */}
+      <section className="section-light py-20 md:py-28" aria-labelledby="lavage-auto">
         <div className="container-x">
-          <h2 id="liste-programmes" className="sr-only">
-            Les programmes
-          </h2>
-          <div className="grid gap-5 lg:grid-cols-3">
+          <SectionHeading id="lavage-auto" title={["Lavage", "automatique."]} tone="light" intro="Trois programmes au portique à rouleaux." />
+          <div className="mt-12 grid gap-5 lg:grid-cols-3">
             {programs.map((p, i) => (
               <ProgramCard key={p.id} program={p} index={i} context="page" />
             ))}
           </div>
-          <p className="mt-6 text-sm text-graphite">Le programme se choisit sur place, à la station.</p>
         </div>
       </section>
 
-      <section className="section-white py-20 md:py-28" aria-labelledby="comparer">
-        <div className="container-x">
-          <SectionHeading id="comparer" title={["Comparer", "les programmes."]} tone="light" />
-          <div className="mt-12 overflow-x-auto">
-            <table className="w-full min-w-[640px] border-collapse text-left">
-              <caption className="sr-only">Comparatif des programmes de lavage H2AU</caption>
-              <thead>
-                <tr className="border-b-2 border-carbon">
-                  <th scope="col" className="w-1/4 py-4 pr-4 font-normal">
-                    <span className="t-label text-graphite">Programme</span>
-                  </th>
-                  {programs.map((p) => (
-                    <th key={p.id} scope="col" className="py-4 pr-4 text-lg font-extrabold" style={{ fontStretch: "112%" }}>
-                      {p.name}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {rows.map((r) => (
-                  <tr key={r.label} className="border-b border-carbon/12 align-top">
-                    <th scope="row" className="py-5 pr-4 font-semibold text-graphite">
-                      {r.label}
-                    </th>
-                    {programs.map((p) => (
-                      <td key={p.id} className="py-5 pr-4">
-                        {r.value(p)}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+      {/* Jetons */}
+      <section className="bg-carbon py-20 md:py-28" aria-labelledby="jetons">
+        <div className="container-x grid gap-12 lg:grid-cols-12 lg:items-center">
+          <div className="lg:col-span-7">
+            <SectionHeading id="jetons" title={["Les jetons.", "Plus vous en prenez…"]} intro="Le distributeur de jetons est sur la station, ouvert 24h/24." />
+            <ul className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4" aria-label="Offres du distributeur de jetons">
+              {tokenPacks.map((t) => (
+                <li key={t.price} className="rounded-[var(--radius-medium)] border border-white/12 p-5">
+                  <p className="t-price text-4xl">
+                    {t.price}
+                    <span className="euro">€</span>
+                  </p>
+                  <p className="mt-2 font-semibold text-h2au-bright">{t.tokens} jetons</p>
+                </li>
+              ))}
+            </ul>
+            <ul className="mt-8 space-y-2 text-metal">
+              {tokenNotes.map((n) => (
+                <li key={n} className="flex gap-3">
+                  <Icon name="check" className="mt-1 size-4 shrink-0 text-h2au-bright" strokeWidth={2} />
+                  {n}
+                </li>
+              ))}
+            </ul>
           </div>
+          <div className="relative aspect-[3/4] overflow-hidden rounded-[var(--radius-medium)] lg:col-span-5">
+            <Image src={photos.borne.src} alt={photos.borne.alt} fill sizes="(min-width: 1024px) 38vw, 100vw" placeholder="blur" className="object-cover" style={{ objectPosition: photos.borne.focus }} />
+          </div>
+        </div>
+      </section>
 
-          <div className="mt-14 grid gap-6 rounded-[var(--radius-medium)] border border-carbon/12 p-7 md:grid-cols-12 md:items-center md:p-9">
-            <div className="md:col-span-8">
-              <h3 className="t-md">Paiement</h3>
-              <p className="mt-3 text-graphite">
-                {station.paymentMethods.length ? station.paymentMethods.join(", ") : <Placeholder>{TODO.payment}</Placeholder>}
-              </p>
-            </div>
-            <div className="md:col-span-4 md:text-right">
-              <ButtonLink href={links.directions} leadingIcon="pin" icon={null}>
-                Itinéraire
-              </ButtonLink>
-            </div>
+      {/* Services à la carte */}
+      <section className="section-white py-20 md:py-28" aria-labelledby="services">
+        <div className="container-x">
+          <SectionHeading id="services" title={["Services", "à la carte."]} tone="light" intro="En pièces de 1 € et 2 €, ou en jetons." />
+          <div className="mt-12 grid gap-5 md:grid-cols-3">
+            {extras.map((e) => (
+              <article key={e.id} className="rounded-[var(--radius-medium)] border border-carbon/12 p-7">
+                <Icon name={e.icon} className="size-7 text-h2au-deep" />
+                <h3 className="t-md mt-6">{e.name}</h3>
+                <dl className="mt-5 divide-y divide-carbon/10 border-y border-carbon/10">
+                  {e.rates!.map((r) => (
+                    <div key={r.label} className="flex justify-between gap-4 py-3">
+                      <dt className="text-graphite">{r.label}</dt>
+                      <dd className="shrink-0 font-bold">{r.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </article>
+            ))}
           </div>
         </div>
       </section>

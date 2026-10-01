@@ -12,9 +12,9 @@ import { pageMetadata } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Équipements : portique à rouleaux et aspiration",
+  title: "Équipements : lavage automatique, haute pression, aspiration, multi-services",
   description:
-    "Les équipements de la station de lavage H2AU à Saint-Maximin : portique à rouleaux et aspirateurs pour l'habitacle. Conseils d'utilisation et bonnes pratiques.",
+    "Les équipements de la station H2AU à Saint-Maximin : portique de lavage automatique, pistes haute pression, aspirateurs et borne multi-services (parfums, brillant pneus, lave-glace). Tarifs et conseils.",
   path: "/equipements",
 });
 
@@ -25,7 +25,7 @@ export default function EquipementsPage() {
         title={["Les outils.", "Pour le résultat."]}
         kicker="Nos équipements"
         intro="Ce que vous trouverez à la station H2AU Lavage de Saint-Maximin, et comment en tirer le meilleur."
-        photo={photos.portiqueRouleaux}
+        photo={photos.pistes}
         washStep={{ n: "04", label: "Haute pression" }}
       />
 
@@ -57,7 +57,9 @@ export default function EquipementsPage() {
                       className="object-cover"
                       style={{ objectPosition: eq.photo.focus }}
                     />
-                    <span aria-hidden="true" className="brush-motion absolute inset-y-0 left-[6%] w-[64%] opacity-50 mix-blend-overlay" />
+                    {eq.icon === "rollers" && (
+                      <span aria-hidden="true" className="brush-motion absolute inset-y-0 left-[6%] w-[64%] opacity-50 mix-blend-overlay" />
+                    )}
                   </>
                 ) : (
                   <VacuumVisual className="absolute inset-0" />
@@ -71,6 +73,20 @@ export default function EquipementsPage() {
                 <RevealLines as="h2" id={`${eq.id}-title`} lines={eq.headline} className="t-lg mt-8" />
                 <JetRule className="mt-6 w-24" delay={250} />
                 <p className="t-lead mt-8 text-white/80">{eq.description}</p>
+
+                {eq.rates && eq.rates.length > 0 && (
+                  <div className="mt-10">
+                    <h3 className="t-label text-metal">Tarifs affichés sur la borne</h3>
+                    <dl className="mt-4 divide-y divide-white/10 border-y border-white/10">
+                      {eq.rates.map((r) => (
+                        <div key={r.label} className="flex justify-between gap-4 py-3">
+                          <dt className="text-white/75">{r.label}</dt>
+                          <dd className="shrink-0 font-bold text-h2au-bright">{r.value}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                  </div>
+                )}
 
                 {eq.tips.length > 0 && (
                   <div className="mt-10">

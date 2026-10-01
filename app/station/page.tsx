@@ -36,7 +36,7 @@ export default function StationPage() {
           </>
         }
         intro={`Votre station de lavage automobile dans l'Oise. ${station.address.complement}.`}
-        photo={photos.stationAuvent}
+        photo={photos.stationEnsemble}
         washStep={{ n: "08", label: "Brillance" }}
       />
 

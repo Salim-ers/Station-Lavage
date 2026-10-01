@@ -30,7 +30,7 @@ export function FinalCta() {
       data-wash-label="Reprise de la route"
       aria-labelledby="cta-title"
     >
-      <Image src={photos.stationAuvent.src} alt="" fill sizes="100vw" placeholder="blur" className="-z-20 object-cover object-[42%_48%]" />
+      <Image src={photos.stationEnsemble.src} alt="" fill sizes="100vw" placeholder="blur" className="-z-20 object-cover object-[50%_58%]" />
       <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgb(7_9_9/.9),rgb(7_9_9/.55)_55%,rgb(7_9_9/.3)),linear-gradient(0deg,rgb(7_9_9)_2%,transparent_40%)]" />
       <div aria-hidden="true" className="wiper-dirt" />
       <div aria-hidden="true" className="wiper-blade" />

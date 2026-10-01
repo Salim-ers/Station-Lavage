@@ -1,6 +1,6 @@
 export const mainNav = [
   { href: "/", label: "Accueil" },
-  { href: "/programmes", label: "Nos programmes" },
+  { href: "/programmes", label: "Programmes & tarifs" },
   { href: "/equipements", label: "Nos équipements" },
   { href: "/comment-ca-marche", label: "Comment ça marche ?" },
   { href: "/station", label: "La station" },
@@ -10,7 +10,7 @@ export const mainNav = [
 
 export const footerNav = [
   { href: "/", label: "Accueil" },
-  { href: "/programmes", label: "Programmes" },
+  { href: "/programmes", label: "Programmes & tarifs" },
   { href: "/equipements", label: "Équipements" },
   { href: "/comment-ca-marche", label: "Comment ça marche" },
   { href: "/station", label: "La station" },

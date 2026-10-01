@@ -24,9 +24,7 @@ type Props = {
 export function ProgramCard({ program, index, context = "home", className }: Props) {
   const { look } = program;
   const dark = look !== "minimal";
-  const features = program.features.length
-    ? program.features
-    : Array.from({ length: PROGRAM_PLACEHOLDERS.slots }, () => null);
+  const features = program.features;
 
   const cta =
     context === "home"
@@ -88,22 +86,20 @@ export function ProgramCard({ program, index, context = "home", className }: Pro
           <Placeholder className={dark ? "text-white/80" : "text-graphite"}>{PROGRAM_PLACEHOLDERS.details}</Placeholder>
         )}
 
-        <ul className="mt-6 space-y-3">
-          {features.map((f, i) => (
-            <li key={i} className="flex items-start gap-3">
-              <Icon
-                name="check"
-                className={cn("mt-0.5 size-4 shrink-0", dark ? "text-h2au-bright" : "text-h2au-deep")}
-                strokeWidth={2}
-              />
-              {f ? (
+        {features.length > 0 && (
+          <ul className="mt-6 space-y-3">
+            {features.map((f) => (
+              <li key={f} className="flex items-start gap-3">
+                <Icon
+                  name="check"
+                  className={cn("mt-0.5 size-4 shrink-0", dark ? "text-h2au-bright" : "text-h2au-deep")}
+                  strokeWidth={2}
+                />
                 <span className={dark ? "text-white/85" : "text-carbon/85"}>{f}</span>
-              ) : (
-                <Placeholder className={dark ? "text-white/70" : "text-graphite"}>{PROGRAM_PLACEHOLDERS.option}</Placeholder>
-              )}
-            </li>
-          ))}
-        </ul>
+              </li>
+            ))}
+          </ul>
+        )}
 
         {program.duration && (
           <p className={cn("mt-6 flex items-center gap-2 text-sm", dark ? "text-metal" : "text-graphite")}>

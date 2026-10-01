@@ -8,7 +8,7 @@ import { VacuumVisual } from "@/components/sections/EquipmentVisuals";
 import { confirmedEquipment } from "@/data/equipment";
 import { cn } from "@/lib/utils";
 
-/** 04 — Équipements confirmés uniquement (rouleaux, aspiration). */
+/** 04 — Équipements confirmés (data/equipment.ts). */
 export function Equipment() {
   return (
     <section
@@ -26,7 +26,7 @@ export function Equipment() {
 
         <div className="mt-14 grid gap-5 md:mt-20 lg:grid-cols-12">
           {confirmedEquipment.map((eq, i) => {
-            const wide = i === 0;
+            const wide = i % 4 === 0 || i % 4 === 3;
             return (
               <div key={eq.id} data-reveal="fade" style={{ ["--d" as string]: `${i * 150}ms` }} className={wide ? "lg:col-span-7" : "lg:col-span-5"}>
                 <Link
@@ -48,7 +48,9 @@ export function Equipment() {
                         style={{ objectPosition: eq.photo.focus }}
                       />
                       {/* impression de rotation lente des brosses */}
-                      <span aria-hidden="true" className="brush-motion absolute inset-y-0 left-[6%] w-[64%] opacity-60 mix-blend-overlay" />
+                      {eq.icon === "rollers" && (
+                        <span aria-hidden="true" className="brush-motion absolute inset-y-0 left-[6%] w-[64%] opacity-60 mix-blend-overlay" />
+                      )}
                       <span aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-carbon via-carbon/55 to-carbon/5" />
                     </>
                   ) : (
