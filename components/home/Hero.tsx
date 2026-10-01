@@ -1,16 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef } from "react";
-import {
-  animate,
-  m,
-  useMotionTemplate,
-  useMotionValue,
-  useReducedMotion,
-  useScroll,
-  useTransform,
-} from "framer-motion";
+import { useRef } from "react";
+import { m, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { Wordmark } from "@/components/brand/Wordmark";
 import { ButtonLink } from "@/components/ui/Button";
 import { Price } from "@/components/ui/Price";
@@ -20,47 +12,18 @@ import { links, station } from "@/data/station";
 
 /**
  * HERO — 01 Arrivée.
- * Le visiteur est derrière son pare-brise. Un jet d'eau lumineux entre par la
- * droite au chargement, puis continue de « nettoyer » la vitre pendant le scroll
- * et révèle la photo nette de la station.
- * Mouvement réduit : photo nette directement, sans jet.
+ * Une seule photo de la station, assombrie à gauche pour le texte.
+ * Elle s'éclaircit et avance très légèrement à l'arrivée, puis glisse au scroll.
+ * Mouvement réduit : photo fixe.
  */
-
-const DROPS = [
-  { left: "83%", top: "24%", w: 16, h: 19 },
-  { left: "90%", top: "58%", w: 11, h: 13 },
-  { left: "74%", top: "70%", w: 20, h: 23 },
-  { left: "95%", top: "36%", w: 8, h: 10 },
-  { left: "68%", top: "18%", w: 9, h: 11 },
-];
-
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
   const reduce = useReducedMotion();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
 
-  // position du jet, en % de la largeur (à gauche du jet : vitre sale)
-  const intro = useMotionValue(118);
-  useEffect(() => {
-    if (reduce) {
-      intro.set(-30);
-      return;
-    }
-    const first = document.documentElement.classList.contains("first-visit");
-    const ctrl = animate(intro, 58, { duration: 1.6, delay: first ? 1 : 0.3, ease: [0.22, 1, 0.36, 1] });
-    return () => ctrl.stop();
-  }, [reduce, intro]);
-
-  const fromScroll = useTransform(scrollYProgress, [0, 0.5], [58, -30]);
-  const x = useTransform(() => Math.min(intro.get(), fromScroll.get()));
-  const xBottom = useTransform(x, (v) => v - 9);
-  const clip = useMotionTemplate`polygon(${x}% 0%, 110% 0%, 110% 100%, ${xBottom}% 100%)`;
-
-  const photoY = useTransform(scrollYProgress, [0, 1], ["0%", "14%"]);
-  const photoScale = useTransform(scrollYProgress, [0, 1], [1, 1.04]);
+  const photoY = useTransform(scrollYProgress, [0, 1], ["0%", "10%"]);
   const contentY = useTransform(scrollYProgress, [0, 0.6], ["0%", "-18%"]);
   const contentOpacity = useTransform(scrollYProgress, [0, 0.45], [1, 0]);
-  const jetOpacity = useTransform(x, [-30, -8, 0, 100, 112], [0, 0, 1, 1, 0]);
 
   return (
     <section
@@ -70,20 +33,14 @@ export function Hero() {
       data-wash-label="Arrivée"
       aria-labelledby="hero-title"
     >
-      {/* Photo : vitre sale (dessous) puis vitre nettoyée (dessus, découpée par le jet) */}
-      <m.div className="absolute inset-0 -z-20" style={{ y: photoY, scale: photoScale }}>
-        {/* même photo, ternie en CSS. Servie telle quelle (unoptimized), sans recompression
-            par le serveur d'images, pour garder toute la netteté du fichier. */}
-        <Image
-          src={photos.heroStation.src}
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          unoptimized
-          className="object-cover object-[80%_50%] brightness-[.72] saturate-[.55] md:object-[70%_45%]"
-        />
-        <m.div className="absolute inset-0" style={{ clipPath: clip }}>
+      <m.div className="absolute inset-0 -z-20" style={{ y: reduce ? 0 : photoY }}>
+        <m.div
+          className="absolute inset-0"
+          initial={reduce ? false : { scale: 1.06, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] }}
+        >
+          {/* servie telle quelle (unoptimized) : pas de recompression par le serveur d'images */}
           <Image
             src={photos.heroStation.src}
             alt={photos.heroStation.alt}
@@ -91,49 +48,11 @@ export function Hero() {
             priority
             sizes="100vw"
             unoptimized
-            className="object-cover object-[80%_50%] md:object-[70%_45%]"
+            className="object-cover"
+            style={{ objectPosition: photos.heroStation.focus }}
           />
-          {/* quelques gouttes sur la partie nettoyée, loin du texte */}
-          <div aria-hidden="true" className="absolute inset-0 hidden sm:block">
-            {DROPS.map((d, i) => (
-              <span key={i} className="drop" style={{ left: d.left, top: d.top, width: d.w, height: d.h }} />
-            ))}
-          </div>
         </m.div>
       </m.div>
-
-      {/* le jet */}
-      {!reduce && (
-        <svg
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 -z-10 h-full w-full"
-          viewBox="0 0 100 100"
-          preserveAspectRatio="none"
-          style={{ filter: "drop-shadow(0 0 6px rgb(43 227 140 / .9)) drop-shadow(0 0 22px rgb(43 227 140 / .45))" }}
-        >
-          <m.line
-            x1={x}
-            y1={0}
-            x2={xBottom}
-            y2={100}
-            stroke="rgb(233 255 244 / .1)"
-            strokeWidth={9}
-            vectorEffect="non-scaling-stroke"
-            style={{ opacity: jetOpacity }}
-          />
-          <m.line
-            x1={x}
-            y1={0}
-            x2={xBottom}
-            y2={100}
-            stroke="#e9fff4"
-            strokeWidth={2}
-            vectorEffect="non-scaling-stroke"
-            style={{ opacity: jetOpacity }}
-          />
-        </svg>
-      )}
-
       <div aria-hidden="true" className="hero-vignette absolute inset-0 -z-10" />
 
       <m.div

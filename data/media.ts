@@ -37,8 +37,8 @@ export type Photo = {
 export const photos = {
   heroStation: {
     src: heroStation,
-    alt: "La station H2AU Lavage à Saint-Maximin : pistes de lavage sous auvent et portique de lavage automatique",
-    focus: "68% 55%",
+    alt: "Les pistes de lavage couvertes de la station H2AU Lavage à Saint-Maximin",
+    focus: "62% 62%",
   },
   stationEnsemble: {
     src: stationEnsemble,
