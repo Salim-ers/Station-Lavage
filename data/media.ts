@@ -1,6 +1,7 @@
 import type { StaticImageData } from "next/image";
-import stationPortique from "@/assets/photos/station-portique.jpg";
+import heroStation from "@/assets/photos/hero-station.jpg";
 import heroStationSale from "@/assets/photos/hero-station-sale.jpg";
+import stationPortique from "@/assets/photos/station-portique.jpg";
 import stationEnsemble from "@/assets/photos/station-ensemble.jpg";
 import pistesAuvent from "@/assets/photos/pistes-auvent.jpg";
 import piste from "@/assets/photos/piste-voiture.jpg";
@@ -16,7 +17,9 @@ import aspirateur from "@/assets/photos/aspirateur.jpg";
  * Pour remplacer une photo : déposer le nouveau fichier dans /assets/photos
  * sous le même nom. Pour en ajouter une : l'importer ici puis l'ajouter à `gallery`.
  *
- * hero-station-sale.jpg est une version ternie de station-portique.jpg
+ * hero-station.jpg, station-ensemble.jpg et pistes-auvent.jpg (affichées en
+ * plein écran) ont été agrandies en 2400–2560 px et légèrement affinées.
+ * hero-station-sale.jpg est une version ternie de hero-station.jpg
  * (effet « vitre sale » du Hero) : la régénérer si la photo change.
  */
 
@@ -34,14 +37,14 @@ export type Photo = {
 
 export const photos = {
   heroStation: {
-    src: stationPortique,
+    src: heroStation,
     alt: "La station H2AU Lavage à Saint-Maximin : pistes de lavage sous auvent et portique de lavage automatique",
-    focus: "70% 58%",
+    focus: "68% 55%",
   },
   heroStationSale: {
     src: heroStationSale,
     alt: "",
-    focus: "70% 58%",
+    focus: "68% 55%",
   },
   stationEnsemble: {
     src: stationEnsemble,

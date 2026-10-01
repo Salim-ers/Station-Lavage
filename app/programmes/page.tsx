@@ -3,7 +3,6 @@ import Image from "next/image";
 import { PageHero } from "@/components/sections/PageHero";
 import { ProgramCard } from "@/components/sections/ProgramCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { Price } from "@/components/ui/Price";
 import { Icon } from "@/components/ui/Icon";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { confirmedEquipment } from "@/data/equipment";
@@ -28,18 +27,7 @@ export default function ProgrammesPage() {
       <PageHero
         title={["Nos tarifs.", "Sans surprise."]}
         kicker={<>{station.name} · {station.city}</>}
-        intro="Lavage automatique, pistes haute pression, aspiration et services : tout se règle sur place, par carte, jetons ou pièces."
-        aside={
-          <ul className="flex items-end justify-start gap-6 md:justify-end md:gap-10" aria-label="Tarifs du lavage automatique">
-            {programs.map((p) => (
-              <li key={p.id} data-inview="">
-                <a href={`#${p.id}`} className="block" data-cursor={`${p.price} €`}>
-                  <Price value={p.price} chrome className="text-[clamp(3.6rem,9vw,7rem)]" />
-                </a>
-              </li>
-            ))}
-          </ul>
-        }
+        intro="Lavage automatique de 6 € à 22 €, pistes haute pression, aspiration, services. Carte, jetons ou pièces."
         washStep={{ n: "03", label: "Mousse" }}
       />
 

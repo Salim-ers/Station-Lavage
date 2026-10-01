@@ -68,11 +68,11 @@ export function ProgramCard({ program, index, context = "home", className }: Pro
       </div>
 
       <h3 className="sr-only">{program.name}</h3>
-      <p aria-hidden="true" className="relative mt-10 leading-none md:mt-14">
+      <p aria-hidden="true" className="relative mt-6 leading-none md:mt-8">
         <Price
           value={program.price}
           chrome={look === "signature"}
-          className={cn("text-[clamp(6rem,18vw,9.5rem)] md:text-[clamp(7rem,11vw,10.5rem)]", look === "rich" && "[&_.euro]:text-h2au-bright")}
+          className={cn("text-[clamp(3.5rem,12vw,5rem)] md:text-[clamp(3.5rem,5vw,5.5rem)]", look === "rich" && "[&_.euro]:text-h2au-bright")}
         />
       </p>
       <p className={cn("relative mt-2 text-lg font-bold", dark ? "text-white" : "text-carbon")} style={{ fontStretch: "112%" }}>

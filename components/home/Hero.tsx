@@ -57,7 +57,7 @@ export function Hero() {
   const clip = useMotionTemplate`polygon(${x}% 0%, 110% 0%, 110% 100%, ${xBottom}% 100%)`;
 
   const photoY = useTransform(scrollYProgress, [0, 1], ["0%", "14%"]);
-  const photoScale = useTransform(scrollYProgress, [0, 1], [1.06, 1.14]);
+  const photoScale = useTransform(scrollYProgress, [0, 1], [1.02, 1.08]);
   const contentY = useTransform(scrollYProgress, [0, 0.6], ["0%", "-18%"]);
   const contentOpacity = useTransform(scrollYProgress, [0, 0.45], [1, 0]);
   const jetOpacity = useTransform(x, [-30, -8, 0, 100, 112], [0, 0, 1, 1, 0]);
@@ -78,6 +78,7 @@ export function Hero() {
           fill
           priority
           sizes="100vw"
+          quality={90}
           placeholder="blur"
           className="object-cover object-[80%_50%] md:object-[70%_45%]"
         />
@@ -88,6 +89,7 @@ export function Hero() {
             fill
             priority
             sizes="100vw"
+            quality={90}
             placeholder="blur"
             className="object-cover object-[80%_50%] md:object-[70%_45%]"
           />

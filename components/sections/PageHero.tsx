@@ -35,6 +35,7 @@ export function PageHero({ title, kicker, intro, photo, children, aside, washSte
             fill
             priority
             sizes="100vw"
+            quality={90}
             placeholder="blur"
             className="-z-20 object-cover opacity-80"
             style={{ objectPosition: photo.focus }}
