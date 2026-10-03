@@ -6,7 +6,8 @@ import { Placeholder } from "@/components/ui/Reveal";
 import { Icon } from "@/components/ui/Icon";
 import { equipment } from "@/data/equipment";
 import { faq, FAQ_TODO } from "@/data/faq";
-import { programs } from "@/data/programs";
+import Link from "next/link";
+import { programsSummary } from "@/data/programs";
 import { station, TODO } from "@/data/station";
 import { JsonLd, pageMetadata } from "@/lib/seo";
 
@@ -26,12 +27,10 @@ export default function CommentCaMarchePage() {
       title: "Choisir son programme",
       body: (
         <>
-          <p>Six programmes au portique, de 6 € à 22 €.</p>
-          <p className="mt-4 flex flex-wrap gap-x-5 gap-y-1 text-3xl font-extrabold text-white" style={{ fontStretch: "118%" }}>
-            {programs.map((p) => (
-              <span key={p.id}>{p.price}&nbsp;€</span>
-            ))}
-          </p>
+          <p>{programsSummary}, du plus simple au plus complet.</p>
+          <Link href="/programmes" className="nav-link mt-3 inline-flex items-center gap-2 font-semibold text-white">
+            Voir le détail <Icon name="arrow" className="size-4" />
+          </Link>
         </>
       ),
     },

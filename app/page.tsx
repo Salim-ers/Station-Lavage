@@ -5,9 +5,7 @@ import { WaterTransition } from "@/components/home/WaterTransition";
 import { Equipment } from "@/components/home/Equipment";
 import { WashSequence } from "@/components/home/WashSequence";
 import { BeforeAfter } from "@/components/home/BeforeAfter";
-import { GallerySection } from "@/components/home/GallerySection";
 import { Open24 } from "@/components/home/Open24";
-import { WhyH2AU } from "@/components/home/WhyH2AU";
 import { ReviewsSection } from "@/components/home/ReviewsSection";
 import { FinalCta } from "@/components/home/FinalCta";
 import { MapSection } from "@/components/home/MapSection";
@@ -38,10 +36,8 @@ export default function HomePage() {
       <WaterTransition />
       <Equipment />
       <WashSequence />
-      <GallerySection />
       <BeforeAfter />
       <Open24 />
-      <WhyH2AU />
       <ReviewsSection />
       <FinalCta />
       <MapSection />

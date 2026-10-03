@@ -1,7 +1,7 @@
 import { ButtonLink } from "@/components/ui/Button";
 import { RevealLines } from "@/components/ui/Reveal";
 import { links, station } from "@/data/station";
-import { programs } from "@/data/programs";
+import { minPrice } from "@/data/programs";
 
 /** Bandeau de conversion en bas des pages intérieures. */
 export function CtaBand({ title = ["Passez.", "Lavez.", "Repartez."] }: { title?: string[] }) {
@@ -16,8 +16,8 @@ export function CtaBand({ title = ["Passez.", "Lavez.", "Repartez."] }: { title?
           <p className="t-label text-metal">
             {station.name} · {station.city} · {station.openingHours}
           </p>
-          <p className="mt-3 text-2xl font-extrabold md:text-3xl" style={{ fontStretch: "118%" }}>
-            {programs.map((p) => `${p.price} €`).join("  ·  ")}
+          <p className="t-lead mt-3 text-white/85">
+            Lavage automatique dès <span className="font-bold text-white">{minPrice} €</span>, pistes et aspiration sur place.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <ButtonLink href={links.directions} leadingIcon="pin" cursor="→">

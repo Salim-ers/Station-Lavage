@@ -7,7 +7,7 @@ import { ButtonLink } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { JetRule } from "@/components/ui/Reveal";
 import { articles, formatDate, getArticle, readingTime, type ArticleBlock } from "@/data/articles";
-import { programs } from "@/data/programs";
+import { programsSummary } from "@/data/programs";
 import { links, siteUrl, station } from "@/data/station";
 import { JsonLd, pageMetadata, SITE_NAME } from "@/lib/seo";
 
@@ -133,10 +133,7 @@ export default async function ArticlePage({ params }: { params: Promise<Params> 
               <div className="rounded-[var(--radius-medium)] bg-carbon p-7 text-white lg:sticky lg:top-24">
                 <p className="t-label text-metal">{station.name} · {station.city}</p>
                 <p className="t-md mt-4">Envie d&apos;une voiture propre ?</p>
-                <p className="mt-3 text-metal">Station ouverte {station.openingHours}. Lavage automatique :</p>
-                <p className="mt-3 text-2xl font-extrabold" style={{ fontStretch: "118%" }}>
-                  {programs.map((p) => `${p.price} €`).join(" · ")}
-                </p>
+                <p className="mt-3 text-metal">Station ouverte {station.openingHours}. {programsSummary}.</p>
                 <div className="mt-7 grid gap-3">
                   <ButtonLink href={links.directions} leadingIcon="pin" icon={null} block>
                     Itinéraire

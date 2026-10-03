@@ -64,7 +64,7 @@ export default function ProgrammesPage() {
         <div className="container-x grid gap-12 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-7">
             <SectionHeading id="jetons" title={["Les jetons.", "Plus vous en prenez…"]} intro="Le distributeur de jetons est sur la station, ouvert 24h/24." />
-            <ul className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4" aria-label="Offres du distributeur de jetons">
+            <ul className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-4" aria-label="Offres du distributeur de jetons">
               {tokenPacks.map((t) => (
                 <li key={t.price} className="rounded-[var(--radius-medium)] border border-white/12 p-5">
                   <p className="t-price text-4xl">
@@ -94,7 +94,7 @@ export default function ProgrammesPage() {
       <section className="section-white py-20 md:py-28" aria-labelledby="services">
         <div className="container-x">
           <SectionHeading id="services" title={["Services", "à la carte."]} tone="light" intro="En pièces de 1 € et 2 €, ou en jetons." />
-          <div className="mt-12 grid gap-5 md:grid-cols-3">
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {extras.map((e) => (
               <article key={e.id} className="rounded-[var(--radius-medium)] border border-carbon/12 p-7">
                 <Icon name={e.icon} className="size-7 text-h2au-deep" />
